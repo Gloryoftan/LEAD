@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
             让每一位Leader，成为改变发生的支点
           </p>
           <div class="hero-actions">
-            <a href="/about" class="btn btn-primary">了解更多</a>
+            <a href="https://mp.weixin.qq.com/s/c6qmMhi8uAmrsSPsUM5fJA" target="_blank" class="btn btn-primary">了解更多</a>
             <a href="/contact" class="btn btn-outline">联系我们</a>
           </div>
         </div>
@@ -128,7 +128,7 @@ import { CommonModule } from '@angular/common';
           </p>
           <div class="cta-actions">
             <a href="/members" class="btn btn-primary">查看学员</a>
-            <a href="/about" class="btn btn-secondary">了解更多</a>
+            <a href="https://mp.weixin.qq.com/s/c6qmMhi8uAmrsSPsUM5fJA" target="_blank" class="btn btn-secondary">了解更多</a>
           </div>
         </div>
       </div>
