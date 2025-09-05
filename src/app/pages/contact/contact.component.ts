@@ -8,11 +8,11 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   template: `
     <!-- Contact Hero -->
-    <section class="contact-hero">
+    <section class="page-hero">
       <div class="container">
-        <div class="contact-hero-content text-center">
-          <h1 class="contact-title fade-in-up">联系我们</h1>
-          <p class="contact-subtitle fade-in-up">
+        <div class="text-center">
+          <h1 class="page-title fade-in-up">联系我们</h1>
+          <p class="page-subtitle fade-in-up">
             我们很乐意听到您的想法和建议
           </p>
         </div>
@@ -192,22 +192,6 @@ import { FormsModule } from '@angular/forms';
     </section>
   `,
   styles: [`
-    .contact-hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 6rem 0 4rem;
-      
-      .contact-title {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-      }
-      
-      .contact-subtitle {
-        font-size: 1.3rem;
-        opacity: 0.9;
-      }
-    }
     
     .contact-content {
       padding: 6rem 0;
@@ -460,17 +444,6 @@ import { FormsModule } from '@angular/forms';
     }
     
     @media (max-width: 768px) {
-      .contact-hero {
-        padding: 4rem 0 2rem;
-        
-        .contact-title {
-          font-size: 2.5rem;
-        }
-        
-        .contact-subtitle {
-          font-size: 1.1rem;
-        }
-      }
       
       .contact-content {
         padding: 4rem 0;

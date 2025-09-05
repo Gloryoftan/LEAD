@@ -7,11 +7,11 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <!-- About Hero -->
-    <section class="about-hero">
+    <section class="page-hero">
       <div class="container">
-        <div class="about-hero-content text-center">
-          <h1 class="about-title fade-in-up">关于 LEAD</h1>
-          <p class="about-subtitle fade-in-up">
+        <div class="text-center">
+          <h1 class="page-title fade-in-up">关于 LEAD</h1>
+          <p class="page-subtitle fade-in-up">
             一个现代化的Angular应用，致力于提供最佳的用户体验和开发效率
           </p>
         </div>
@@ -185,24 +185,6 @@ import { CommonModule } from '@angular/common';
     </section>
   `,
   styles: [`
-    .about-hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 6rem 0 4rem;
-      
-      .about-title {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-      }
-      
-      .about-subtitle {
-        font-size: 1.3rem;
-        opacity: 0.9;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-    }
     
     .mission {
       padding: 6rem 0;
@@ -494,17 +476,6 @@ import { CommonModule } from '@angular/common';
     }
     
     @media (max-width: 768px) {
-      .about-hero {
-        padding: 4rem 0 2rem;
-        
-        .about-title {
-          font-size: 2.5rem;
-        }
-        
-        .about-subtitle {
-          font-size: 1.1rem;
-        }
-      }
       
       .mission {
         padding: 4rem 0;
