@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, of, catchError } from 'rxjs';
 import { Member, TeamData, Milestone } from '../models/member.model';
 
 @Injectable({
@@ -7,36 +8,77 @@ import { Member, TeamData, Milestone } from '../models/member.model';
 })
 export class MemberService {
   private readonly STORAGE_KEY = 'team_data';
+  private readonly DATA_URL = 'assets/data/members.json';
   private membersSubject = new BehaviorSubject<Member[]>([]);
   public members$ = this.membersSubject.asObservable();
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.loadMembers();
   }
 
   private loadMembers(): void {
+    // 首先尝试从JSON文件加载数据
+    this.loadFromJsonFile().subscribe({
+      next: (teamData) => {
+        if (teamData && teamData.members) {
+          this.processMembersData(teamData.members);
+          // 将JSON数据保存到localStorage作为缓存
+          this.saveMembersToStorage(teamData.members);
+        } else {
+          this.loadFromLocalStorage();
+        }
+      },
+      error: (error) => {
+        console.warn('无法从JSON文件加载数据，尝试从localStorage加载:', error);
+        this.loadFromLocalStorage();
+      }
+    });
+  }
+
+  private loadFromJsonFile(): Observable<TeamData | null> {
+    return this.http.get<TeamData>(this.DATA_URL).pipe(
+      catchError(error => {
+        console.error('从JSON文件加载数据失败:', error);
+        return of(null);
+      })
+    );
+  }
+
+  private loadFromLocalStorage(): void {
     const storedData = localStorage.getItem(this.STORAGE_KEY);
     if (storedData) {
       try {
         const teamData: TeamData = JSON.parse(storedData);
-        // 转换日期字符串为Date对象
-        teamData.members.forEach(member => {
-          member.joinDate = new Date(member.joinDate);
-          member.milestones.forEach(milestone => {
-            if (milestone.completedDate) {
-              milestone.completedDate = new Date(milestone.completedDate);
-            }
-          });
-          member.performance.lastReviewDate = new Date(member.performance.lastReviewDate);
-        });
-        this.membersSubject.next(teamData.members);
+        this.processMembersData(teamData.members);
       } catch (error) {
-        console.error('Error loading members from localStorage:', error);
+        console.error('从localStorage加载数据失败:', error);
         this.initializeDefaultData();
       }
     } else {
       this.initializeDefaultData();
     }
+  }
+
+  private processMembersData(members: Member[]): void {
+    // 转换日期字符串为Date对象
+    members.forEach(member => {
+      member.joinDate = new Date(member.joinDate);
+      member.milestones.forEach(milestone => {
+        if (milestone.completedDate) {
+          milestone.completedDate = new Date(milestone.completedDate);
+        }
+      });
+      member.performance.lastReviewDate = new Date(member.performance.lastReviewDate);
+    });
+    this.membersSubject.next(members);
+  }
+
+  private saveMembersToStorage(members: Member[]): void {
+    const teamData: TeamData = {
+      members,
+      lastUpdated: new Date()
+    };
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(teamData));
   }
 
   private initializeDefaultData(): void {
@@ -190,11 +232,7 @@ export class MemberService {
   }
 
   private saveMembers(members: Member[]): void {
-    const teamData: TeamData = {
-      members,
-      lastUpdated: new Date()
-    };
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(teamData));
+    this.saveMembersToStorage(members);
     this.membersSubject.next(members);
   }
 
@@ -243,5 +281,40 @@ export class MemberService {
       member.milestones = member.milestones.filter(m => m.id !== milestoneId);
       this.saveMembers(members);
     }
+  }
+
+  /**
+   * 重新从JSON文件加载数据
+   * 用于管理员手动刷新数据
+   */
+  reloadFromJson(): Observable<boolean> {
+    return new Observable(observer => {
+      this.loadFromJsonFile().subscribe({
+        next: (teamData) => {
+          if (teamData && teamData.members) {
+            this.processMembersData(teamData.members);
+            this.saveMembersToStorage(teamData.members);
+            observer.next(true);
+            observer.complete();
+          } else {
+            observer.next(false);
+            observer.complete();
+          }
+        },
+        error: (error) => {
+          console.error('重新加载JSON数据失败:', error);
+          observer.next(false);
+          observer.complete();
+        }
+      });
+    });
+  }
+
+  /**
+   * 清除localStorage缓存，强制从JSON文件重新加载
+   */
+  clearCacheAndReload(): void {
+    localStorage.removeItem(this.STORAGE_KEY);
+    this.loadMembers();
   }
 }
