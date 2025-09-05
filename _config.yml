@@ -1,0 +1,34 @@
+# GitHub Pages Jekyll 配置
+title: LEAD
+description: LEAD项目主页
+author: Samari Tan
+email: your-email@example.com
+
+# GitHub Pages 设置
+baseurl: "" # 如果你的仓库名不是 username.github.io，请设置为 "/repository-name"
+url: "" # 设置为你的 GitHub Pages URL，例如 "https://yourusername.github.io"
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# 排除文件
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+
+# 包含文件
+include:
+  - _pages
+
+# 默认设置
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
