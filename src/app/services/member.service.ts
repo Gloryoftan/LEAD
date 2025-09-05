@@ -43,134 +43,146 @@ export class MemberService {
     const defaultMembers: Member[] = [
       {
         id: '1',
-        name: '张三',
-        position: '高级前端工程师',
-        department: '技术部',
-        email: 'zhangsan@company.com',
-        joinDate: new Date('2022-01-15'),
-        bio: '拥有5年前端开发经验，专精React和Angular框架，热爱新技术探索。',
-        skills: ['Angular', 'React', 'TypeScript', 'Node.js', 'UI/UX设计'],
+        name: '张明',
+        position: '大区干事',
+        department: 'D128大区',
+        email: 'zhangming@toastmasters.org',
+        joinDate: new Date('2024-01-15'),
+        bio: '拥有3年Toastmasters经验，渴望突破领导力瓶颈，希望在团队管理和项目执行方面获得提升。',
+        skills: ['团队管理', '项目执行', '沟通表达', '时间管理', '决策制定'],
         milestones: [
           {
             id: 'm1',
-            title: '完成Angular高级培训',
-            description: '通过公司内部Angular高级培训课程',
-            completedDate: new Date('2022-03-15'),
+            title: '完成领导力基础培训',
+            description: '通过LEAD项目第一阶段领导力基础课程',
+            completedDate: new Date('2024-03-15'),
             status: 'completed',
-            category: 'certification',
+            category: 'training',
             priority: 'high',
-            tags: ['Angular', '培训']
+            tags: ['领导力', '基础培训']
           },
           {
             id: 'm2',
-            title: '主导项目重构',
-            description: '成功重构公司核心前端项目，提升性能30%',
-            completedDate: new Date('2022-06-20'),
+            title: '主导团队项目',
+            description: '成功主导大区年度活动项目，提升团队协作效率',
+            completedDate: new Date('2024-06-20'),
             status: 'completed',
             category: 'project',
             priority: 'high',
-            tags: ['重构', '性能优化']
+            tags: ['项目管理', '团队协作']
           },
           {
             id: 'm3',
-            title: '学习微前端架构',
-            description: '深入研究微前端架构模式',
+            title: '学习韧性领导力',
+            description: '深入研究韧性领导力模式和实践方法',
             status: 'in-progress',
-            category: 'skill',
+            category: 'leadership',
             priority: 'medium',
-            tags: ['微前端', '架构']
+            tags: ['韧性领导力', '心理韧性']
           }
         ],
-        currentGoals: ['成为技术专家', '培养团队新人', '探索AI在前端的应用'],
+        currentGoals: ['提升决策能力', '培养团队韧性', '进入DLC人才池'],
         performance: {
           rating: 4.5,
-          lastReviewDate: new Date('2023-12-01'),
-          notes: '表现优秀，技术能力强，团队协作良好'
-        }
+          lastReviewDate: new Date('2024-12-01'),
+          notes: '学习积极，领导力提升明显，团队协作良好'
+        },
+        leadershipLevel: 'intermediate',
+        participationRate: 92,
+        assignmentCompletionRate: 88,
+        bottleneckResolutionRate: 85
       },
       {
         id: '2',
-        name: '李四',
-        position: '产品经理',
-        department: '产品部',
-        email: 'lisi@company.com',
-        joinDate: new Date('2021-08-20'),
-        bio: '资深产品经理，擅长用户研究和产品设计，有丰富的B端产品经验。',
-        skills: ['产品设计', '用户研究', '数据分析', '项目管理', '敏捷开发'],
+        name: '李华',
+        position: '大区干事',
+        department: 'D128大区',
+        email: 'lihua@toastmasters.org',
+        joinDate: new Date('2023-08-20'),
+        bio: '资深Toastmasters成员，擅长团队协调和活动组织，希望在战略思维和影响力方面获得突破。',
+        skills: ['团队协调', '活动组织', '战略思维', '影响力建设', '冲突解决'],
         milestones: [
           {
             id: 'm4',
-            title: 'PMP认证',
-            description: '获得项目管理专业人士认证',
-            completedDate: new Date('2022-01-10'),
+            title: '完成高级领导力认证',
+            description: '获得Toastmasters高级领导力认证',
+            completedDate: new Date('2024-01-10'),
             status: 'completed',
             category: 'certification',
             priority: 'high',
-            tags: ['PMP', '项目管理']
+            tags: ['高级领导力', '认证']
           },
           {
             id: 'm5',
-            title: '产品上线成功',
-            description: '主导的新产品成功上线，用户增长200%',
-            completedDate: new Date('2022-09-15'),
+            title: '成功组织大区年会',
+            description: '主导的大区年会活动成功举办，参与人数增长150%',
+            completedDate: new Date('2024-09-15'),
             status: 'completed',
             category: 'achievement',
             priority: 'high',
-            tags: ['产品上线', '用户增长']
+            tags: ['活动组织', '影响力']
           },
           {
             id: 'm6',
-            title: '学习AI产品设计',
-            description: '研究AI在产品设计中的应用',
+            title: '学习共生领导力',
+            description: '研究共生领导力模式和实践方法',
             status: 'pending',
-            category: 'skill',
+            category: 'leadership',
             priority: 'medium',
-            tags: ['AI', '产品设计']
+            tags: ['共生领导力', '协作']
           }
         ],
-        currentGoals: ['提升数据分析能力', '学习AI产品设计', '培养产品团队'],
+        currentGoals: ['提升战略思维', '学习共生领导力', '培养影响力'],
         performance: {
           rating: 4.8,
-          lastReviewDate: new Date('2023-11-15'),
-          notes: '产品思维优秀，执行力强，用户导向明确'
-        }
+          lastReviewDate: new Date('2024-11-15'),
+          notes: '组织能力强，影响力突出，团队协作优秀'
+        },
+        leadershipLevel: 'advanced',
+        participationRate: 95,
+        assignmentCompletionRate: 92,
+        bottleneckResolutionRate: 88
       },
       {
         id: '3',
-        name: '王五',
-        position: 'UI/UX设计师',
-        department: '设计部',
-        email: 'wangwu@company.com',
-        joinDate: new Date('2023-02-01'),
-        bio: '新加入的设计师，有良好的设计基础，正在快速成长中。',
-        skills: ['Figma', 'Sketch', 'Adobe Creative Suite', '用户界面设计', '用户体验设计'],
+        name: '王丽',
+        position: '大区干事',
+        department: 'D128大区',
+        email: 'wangli@toastmasters.org',
+        joinDate: new Date('2024-02-01'),
+        bio: '新加入的Toastmasters成员，有良好的沟通基础，正在快速成长中，希望在领导力方面获得突破。',
+        skills: ['沟通表达', '演讲技巧', '团队协作', '时间管理', '目标设定'],
         milestones: [
           {
             id: 'm7',
-            title: '完成设计系统搭建',
-            description: '参与公司设计系统的搭建工作',
-            completedDate: new Date('2023-04-20'),
+            title: '完成基础领导力培训',
+            description: '参与LEAD项目基础领导力培训课程',
+            completedDate: new Date('2024-04-20'),
             status: 'completed',
-            category: 'project',
+            category: 'training',
             priority: 'medium',
-            tags: ['设计系统', '协作']
+            tags: ['基础培训', '领导力']
           },
           {
             id: 'm8',
-            title: '学习前端开发基础',
-            description: '学习HTML、CSS、JavaScript基础',
+            title: '学习炼能领导力',
+            description: '深入学习炼能领导力核心技能',
             status: 'in-progress',
-            category: 'skill',
+            category: 'leadership',
             priority: 'medium',
-            tags: ['前端开发', '学习']
+            tags: ['炼能领导力', '技能提升']
           }
         ],
-        currentGoals: ['提升设计技能', '学习前端开发', '参与更多项目'],
+        currentGoals: ['提升沟通技能', '学习炼能领导力', '参与更多项目'],
         performance: {
           rating: 4.0,
-          lastReviewDate: new Date('2023-10-01'),
-          notes: '学习能力强，设计基础扎实，需要更多项目经验'
-        }
+          lastReviewDate: new Date('2024-10-01'),
+          notes: '学习能力强，沟通基础扎实，需要更多实践机会'
+        },
+        leadershipLevel: 'beginner',
+        participationRate: 88,
+        assignmentCompletionRate: 85,
+        bottleneckResolutionRate: 75
       }
     ];
 

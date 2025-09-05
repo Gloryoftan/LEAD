@@ -4,7 +4,7 @@ export interface Milestone {
   description: string;
   completedDate?: Date;
   status: 'completed' | 'in-progress' | 'pending';
-  category: 'skill' | 'project' | 'achievement' | 'certification';
+  category: 'leadership' | 'training' | 'project' | 'achievement' | 'certification';
   priority: 'high' | 'medium' | 'low';
   tags: string[];
 }
@@ -26,6 +26,10 @@ export interface Member {
     lastReviewDate: Date;
     notes: string;
   };
+  leadershipLevel: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  participationRate: number; // 课程参与率
+  assignmentCompletionRate: number; // 作业完成率
+  bottleneckResolutionRate: number; // 卡点解决率
 }
 
 export interface TeamData {

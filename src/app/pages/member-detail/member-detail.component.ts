@@ -727,7 +727,8 @@ export class MemberDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getCategoryText(category: string): string {
     switch (category) {
-      case 'skill': return '技能';
+      case 'leadership': return '领导力';
+      case 'training': return '培训';
       case 'project': return '项目';
       case 'achievement': return '成就';
       case 'certification': return '认证';
@@ -754,7 +755,8 @@ export class MemberDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getMarkerIcon(milestone: Milestone): string {
     switch (milestone.category) {
-      case 'skill': return '📚';
+      case 'leadership': return '👑';
+      case 'training': return '📚';
       case 'project': return '🚀';
       case 'achievement': return '🏆';
       case 'certification': return '📜';

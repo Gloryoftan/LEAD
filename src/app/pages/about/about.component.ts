@@ -10,9 +10,9 @@ import { CommonModule } from '@angular/common';
     <section class="page-hero">
       <div class="container">
         <div class="text-center">
-          <h1 class="page-title fade-in-up">关于 LEAD</h1>
+          <h1 class="page-title fade-in-up">关于 LEAD 项目</h1>
           <p class="page-subtitle fade-in-up">
-            一个现代化的Angular应用，致力于提供最佳的用户体验和开发效率
+            《D128 LEAD项目第二期》- 让每一位Leader，成为改变发生的支点
           </p>
         </div>
       </div>
@@ -23,23 +23,24 @@ import { CommonModule } from '@angular/common';
       <div class="container">
         <div class="mission-content">
           <div class="mission-text">
-            <h2 class="section-title">我们的使命</h2>
+            <h2 class="section-title">项目背景</h2>
             <p class="mission-description">
-              LEAD项目旨在创建一个现代化的Web应用框架，为开发者提供高效、可维护、可扩展的开发体验。
-              我们相信技术应该服务于用户，通过精心设计的界面和流畅的交互，为用户创造价值。
+              为渴望突破领导力瓶颈的大区干事提供练兵场&赋能场，破局共生，打造韧性领导力。
+              我们相信每一位Leader都有成为改变发生支点的潜力，通过系统化的培训和实践，
+              能够突破个人和团队的成长瓶颈。
             </p>
             <p class="mission-description">
-              我们的目标是通过Angular框架的强大功能，结合最新的Web技术，
-              构建一个既美观又实用的应用平台，为未来的Web开发树立新的标准。
+              我们的使命是让每位肩负使命的伙伴，在破局时有人支持，在探索时有路可循。
+              通过炼能、韧性、共生三大核心价值观，构建一个互助共赢的领导力发展生态。
             </p>
           </div>
           <div class="mission-image">
             <div class="mission-graphic">
               <div class="tech-stack">
-                <div class="tech-item">Angular</div>
-                <div class="tech-item">TypeScript</div>
-                <div class="tech-item">SCSS</div>
-                <div class="tech-item">GitHub</div>
+                <div class="tech-item">炼能</div>
+                <div class="tech-item">韧性</div>
+                <div class="tech-item">共生</div>
+                <div class="tech-item">LEAD</div>
               </div>
             </div>
           </div>
@@ -51,27 +52,59 @@ import { CommonModule } from '@angular/common';
     <section class="team">
       <div class="container">
         <div class="section-header text-center">
-          <h2 class="section-title">开发团队</h2>
+          <h2 class="section-title">项目目标</h2>
           <p class="section-subtitle">
-            我们是一群充满激情的开发者，致力于创造优秀的用户体验
+            通过系统化的培训和实践，实现领导力突破和团队成长
           </p>
         </div>
         
         <div class="team-grid">
           <div class="team-member card">
             <div class="member-avatar">
-              <div class="avatar-placeholder">👨‍💻</div>
+              <div class="avatar-placeholder">📚</div>
             </div>
             <div class="member-info">
-              <h3 class="member-name">Samari Tan</h3>
-              <p class="member-role">项目负责人 & 全栈开发者</p>
+              <h3 class="member-name">学员留存率</h3>
+              <p class="member-role">课程参与率 ≥85%</p>
               <p class="member-description">
-                专注于Angular生态系统和现代化Web开发，拥有丰富的项目经验。
+                确保学员积极参与培训课程，建立持续学习的良好习惯。
               </p>
-              <div class="member-social">
-                <a href="https://github.com/yourusername" target="_blank" class="social-link">GitHub</a>
-                <a href="mailto:your-email&#64;example.com" class="social-link">Email</a>
-              </div>
+            </div>
+          </div>
+          <div class="team-member card">
+            <div class="member-avatar">
+              <div class="avatar-placeholder">✅</div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">作业完成率</h3>
+              <p class="member-role">作业完成率 ≥80%</p>
+              <p class="member-description">
+                通过实践作业巩固学习成果，提升领导力技能的实际应用能力。
+              </p>
+            </div>
+          </div>
+          <div class="team-member card">
+            <div class="member-avatar">
+              <div class="avatar-placeholder">🎯</div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">卡点解决率</h3>
+              <p class="member-role">领导力卡点解决率 ≥80%</p>
+              <p class="member-description">
+                针对性解决学员在领导力发展过程中遇到的具体问题和瓶颈。
+              </p>
+            </div>
+          </div>
+          <div class="team-member card">
+            <div class="member-avatar">
+              <div class="avatar-placeholder">🌟</div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">成果转化率</h3>
+              <p class="member-role">50%学员进入DLC人才池</p>
+              <p class="member-description">
+                将培训成果转化为实际价值，为组织培养更多优秀的领导人才。
+              </p>
             </div>
           </div>
         </div>
@@ -82,57 +115,57 @@ import { CommonModule } from '@angular/common';
     <section class="technology">
       <div class="container">
         <div class="section-header text-center">
-          <h2 class="section-title">技术栈</h2>
+          <h2 class="section-title">核心价值观</h2>
           <p class="section-subtitle">
-            我们使用最新的技术和最佳实践来构建应用
+            炼能、韧性、共生 - 构建领导力发展的三大支柱
           </p>
         </div>
         
         <div class="tech-categories">
           <div class="tech-category">
-            <h3 class="category-title">前端框架</h3>
+            <h3 class="category-title">炼能</h3>
             <div class="tech-items">
               <div class="tech-item">
-                <span class="tech-icon">🅰️</span>
-                <span class="tech-name">Angular 17</span>
-                <span class="tech-desc">现代化的前端框架</span>
+                <span class="tech-icon">🎯</span>
+                <span class="tech-name">能力建设</span>
+                <span class="tech-desc">系统化提升领导力核心技能</span>
               </div>
               <div class="tech-item">
-                <span class="tech-icon">📘</span>
-                <span class="tech-name">TypeScript</span>
-                <span class="tech-desc">类型安全的JavaScript</span>
+                <span class="tech-icon">📚</span>
+                <span class="tech-name">知识体系</span>
+                <span class="tech-desc">构建完整的领导力知识框架</span>
               </div>
             </div>
           </div>
           
           <div class="tech-category">
-            <h3 class="category-title">样式与设计</h3>
+            <h3 class="category-title">韧性</h3>
             <div class="tech-items">
               <div class="tech-item">
-                <span class="tech-icon">🎨</span>
-                <span class="tech-name">SCSS</span>
-                <span class="tech-desc">强大的CSS预处理器</span>
+                <span class="tech-icon">💪</span>
+                <span class="tech-name">心理韧性</span>
+                <span class="tech-desc">培养面对挑战的适应能力</span>
               </div>
               <div class="tech-item">
-                <span class="tech-icon">📱</span>
-                <span class="tech-name">响应式设计</span>
-                <span class="tech-desc">适配所有设备</span>
+                <span class="tech-icon">🔄</span>
+                <span class="tech-name">恢复能力</span>
+                <span class="tech-desc">快速从挫折中恢复并成长</span>
               </div>
             </div>
           </div>
           
           <div class="tech-category">
-            <h3 class="category-title">部署与CI/CD</h3>
+            <h3 class="category-title">共生</h3>
             <div class="tech-items">
               <div class="tech-item">
-                <span class="tech-icon">🚀</span>
-                <span class="tech-name">GitHub Actions</span>
-                <span class="tech-desc">自动化构建部署</span>
+                <span class="tech-icon">🤝</span>
+                <span class="tech-name">团队协作</span>
+                <span class="tech-desc">建立互助共赢的团队文化</span>
               </div>
               <div class="tech-item">
-                <span class="tech-icon">🌐</span>
-                <span class="tech-name">GitHub Pages</span>
-                <span class="tech-desc">静态网站托管</span>
+                <span class="tech-icon">🌱</span>
+                <span class="tech-name">共同成长</span>
+                <span class="tech-desc">实现个人与团队的共同发展</span>
               </div>
             </div>
           </div>
@@ -144,39 +177,42 @@ import { CommonModule } from '@angular/common';
     <section class="timeline">
       <div class="container">
         <div class="section-header text-center">
-          <h2 class="section-title">发展历程</h2>
+          <h2 class="section-title">项目口号</h2>
           <p class="section-subtitle">
-            我们的项目发展时间线
+            LEAD Program—Ignite change starting from YOU/ME. 让改变从你(我)开始
           </p>
         </div>
         
         <div class="timeline-container">
           <div class="timeline-item">
-            <div class="timeline-date">2025年1月</div>
+            <div class="timeline-date">愿景</div>
             <div class="timeline-content">
-              <h3 class="timeline-title">项目启动</h3>
+              <h3 class="timeline-title">让每一位Leader，成为改变发生的支点</h3>
               <p class="timeline-description">
-                开始规划LEAD项目，确定技术栈和架构设计
+                我们相信每个人都有成为领导者的潜力，通过系统化的培训和实践，
+                能够成为推动组织和社会变革的重要力量。
               </p>
             </div>
           </div>
           
           <div class="timeline-item">
-            <div class="timeline-date">2025年1月</div>
+            <div class="timeline-date">使命</div>
             <div class="timeline-content">
-              <h3 class="timeline-title">核心开发</h3>
+              <h3 class="timeline-title">让每位肩负使命的伙伴，在破局时有人支持，在探索时有路可循</h3>
               <p class="timeline-description">
-                完成Angular应用的基础架构和核心组件开发
+                为每一位渴望突破领导力瓶颈的大区干事提供练兵场和赋能场，
+                在挑战中成长，在探索中前行。
               </p>
             </div>
           </div>
           
           <div class="timeline-item">
-            <div class="timeline-date">未来</div>
+            <div class="timeline-date">传播度</div>
             <div class="timeline-content">
-              <h3 class="timeline-title">持续改进</h3>
+              <h3 class="timeline-title">项目故事获大区公众号阅读量500+</h3>
               <p class="timeline-description">
-                根据用户反馈持续优化功能，添加新特性
+                通过分享项目故事和学员成长经历，扩大项目影响力，
+                激励更多人参与领导力发展。
               </p>
             </div>
           </div>

@@ -29,7 +29,7 @@ import { RouterModule } from '@angular/router';
                routerLinkActive="active" 
                class="nav-link"
                (click)="closeMenu()">
-               团队成员
+               学员
             </a>
             <a routerLink="/about" 
                routerLinkActive="active" 

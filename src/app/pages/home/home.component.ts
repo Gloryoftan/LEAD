@@ -11,10 +11,10 @@ import { CommonModule } from '@angular/common';
       <div class="container">
         <div class="hero-content fade-in-up">
           <h1 class="hero-title">
-            欢迎来到 <span class="highlight">LEAD</span>
+            《D128 LEAD项目第二期》
           </h1>
           <p class="hero-subtitle">
-            一个现代化的Angular应用，致力于提供最佳的用户体验和开发效率
+            让每一位Leader，成为改变发生的支点
           </p>
           <div class="hero-actions">
             <a href="/about" class="btn btn-primary">了解更多</a>
@@ -36,58 +36,58 @@ import { CommonModule } from '@angular/common';
     <section class="features">
       <div class="container">
         <div class="section-header text-center">
-          <h2 class="section-title">核心特性</h2>
+          <h2 class="section-title">项目特色</h2>
           <p class="section-subtitle">
-            我们提供现代化的技术栈和最佳实践
+            为渴望突破领导力瓶颈的大区干事提供练兵场&赋能场
           </p>
         </div>
         
         <div class="grid grid-3">
           <div class="card feature-card fade-in-up">
-            <div class="feature-icon">🚀</div>
-            <h3 class="feature-title">现代化架构</h3>
+            <div class="feature-icon">🎯</div>
+            <h3 class="feature-title">炼能</h3>
             <p class="feature-description">
-              基于Angular 17构建，采用最新的技术栈和最佳实践
+              通过系统化培训和实践，提升领导力核心能力
             </p>
           </div>
           
           <div class="card feature-card fade-in-up">
-            <div class="feature-icon">⚡</div>
-            <h3 class="feature-title">高性能</h3>
+            <div class="feature-icon">💪</div>
+            <h3 class="feature-title">韧性</h3>
             <p class="feature-description">
-              优化的构建配置和懒加载路由，确保最佳性能
+              培养面对挑战时的心理韧性和适应能力
             </p>
           </div>
           
           <div class="card feature-card fade-in-up">
-            <div class="feature-icon">📱</div>
-            <h3 class="feature-title">响应式设计</h3>
+            <div class="feature-icon">🤝</div>
+            <h3 class="feature-title">共生</h3>
             <p class="feature-description">
-              完全响应式设计，在所有设备上都有完美体验
+              建立互助共赢的团队文化和协作关系
             </p>
           </div>
           
           <div class="card feature-card fade-in-up">
-            <div class="feature-icon">🎨</div>
-            <h3 class="feature-title">美观界面</h3>
+            <div class="feature-icon">📚</div>
+            <h3 class="feature-title">系统培训</h3>
             <p class="feature-description">
-              精心设计的用户界面，提供优雅的视觉体验
+              课程参与率≥85%，作业完成率≥80%
             </p>
           </div>
           
           <div class="card feature-card fade-in-up">
             <div class="feature-icon">🔧</div>
-            <h3 class="feature-title">易于维护</h3>
+            <h3 class="feature-title">问题解决</h3>
             <p class="feature-description">
-              清晰的代码结构和组件化设计，便于开发和维护
+              领导力卡点解决率≥80%，针对性突破瓶颈
             </p>
           </div>
           
           <div class="card feature-card fade-in-up">
-            <div class="feature-icon">🌐</div>
-            <h3 class="feature-title">自动部署</h3>
+            <div class="feature-icon">🌟</div>
+            <h3 class="feature-title">成果转化</h3>
             <p class="feature-description">
-              集成GitHub Actions，实现自动化构建和部署
+              50%学员进入DLC人才池，实现价值转化
             </p>
           </div>
         </div>
@@ -99,20 +99,20 @@ import { CommonModule } from '@angular/common';
       <div class="container">
         <div class="grid grid-4">
           <div class="stat-item text-center">
-            <div class="stat-number">17</div>
-            <div class="stat-label">Angular版本</div>
+            <div class="stat-number">≥85%</div>
+            <div class="stat-label">课程参与率</div>
           </div>
           <div class="stat-item text-center">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">响应式设计</div>
+            <div class="stat-number">≥80%</div>
+            <div class="stat-label">作业完成率</div>
           </div>
           <div class="stat-item text-center">
-            <div class="stat-number">0</div>
-            <div class="stat-label">配置复杂度</div>
+            <div class="stat-number">≥80%</div>
+            <div class="stat-label">卡点解决率</div>
           </div>
           <div class="stat-item text-center">
-            <div class="stat-number">∞</div>
-            <div class="stat-label">扩展可能</div>
+            <div class="stat-number">50%</div>
+            <div class="stat-label">人才池转化</div>
           </div>
         </div>
       </div>
@@ -122,13 +122,13 @@ import { CommonModule } from '@angular/common';
     <section class="cta">
       <div class="container">
         <div class="cta-content text-center">
-          <h2 class="cta-title">准备开始了吗？</h2>
+          <h2 class="cta-title">让改变从你(我)开始</h2>
           <p class="cta-subtitle">
-            立即体验LEAD的强大功能，开启你的现代化开发之旅
+            LEAD Program—Ignite change starting from YOU/ME
           </p>
           <div class="cta-actions">
-            <a href="/contact" class="btn btn-primary">立即开始</a>
-            <a href="https://github.com/yourusername/LEAD" target="_blank" class="btn btn-secondary">查看源码</a>
+            <a href="/members" class="btn btn-primary">查看学员</a>
+            <a href="/about" class="btn btn-secondary">了解更多</a>
           </div>
         </div>
       </div>

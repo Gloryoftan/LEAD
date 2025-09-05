@@ -14,8 +14,8 @@ import { Member } from '../../models/member.model';
       <!-- 页面头部 -->
       <section class="page-hero">
         <div class="container">
-          <h1 class="page-title">团队成员</h1>
-          <p class="page-subtitle">探索每个成员的成长轨迹和关键成就</p>
+          <h1 class="page-title">学员</h1>
+          <p class="page-subtitle">探索每个学员的领导力成长轨迹和关键成就</p>
         </div>
       </section>
 
@@ -23,8 +23,8 @@ import { Member } from '../../models/member.model';
       <section class="members-section">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">我们的团队</h2>
-            <p class="section-subtitle">{{ members.length }} 位优秀成员</p>
+            <h2 class="section-title">我们的学员</h2>
+            <p class="section-subtitle">{{ members.length }} 位优秀学员</p>
           </div>
 
           <div class="members-grid" data-aos="fade-up">
@@ -51,12 +51,16 @@ import { Member } from '../../models/member.model';
                 
                 <div class="member-stats">
                   <div class="stat-item">
-                    <span class="stat-label">里程碑</span>
-                    <span class="stat-value">{{ getCompletedMilestones(member) }}/{{ member.milestones.length }}</span>
+                    <span class="stat-label">参与率</span>
+                    <span class="stat-value">{{ member.participationRate }}%</span>
                   </div>
                   <div class="stat-item">
-                    <span class="stat-label">评分</span>
-                    <span class="stat-value">{{ member.performance.rating }}/5</span>
+                    <span class="stat-label">完成率</span>
+                    <span class="stat-value">{{ member.assignmentCompletionRate }}%</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">解决率</span>
+                    <span class="stat-value">{{ member.bottleneckResolutionRate }}%</span>
                   </div>
                 </div>
 
@@ -77,17 +81,17 @@ import { Member } from '../../models/member.model';
                 <div class="progress-bar">
                   <div 
                     class="progress-fill" 
-                    [style.width.%]="getProgressPercentage(member)"
+                    [style.width.%]="member.assignmentCompletionRate"
                   ></div>
                 </div>
-                <span class="progress-text">{{ getProgressPercentage(member) }}% 完成</span>
+                <span class="progress-text">{{ member.assignmentCompletionRate }}% 完成</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 团队统计 -->
+      <!-- 学员统计 -->
       <section class="team-stats-section">
         <div class="container">
           <div class="stats-grid">
@@ -95,28 +99,28 @@ import { Member } from '../../models/member.model';
               <div class="stat-icon">👥</div>
               <div class="stat-content">
                 <h3>{{ members.length }}</h3>
-                <p>团队成员</p>
+                <p>学员总数</p>
               </div>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-              <div class="stat-icon">🎯</div>
+              <div class="stat-icon">📚</div>
               <div class="stat-content">
-                <h3>{{ getTotalMilestones() }}</h3>
-                <p>总里程碑</p>
+                <h3>{{ getAverageParticipationRate() }}%</h3>
+                <p>平均参与率</p>
               </div>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
               <div class="stat-icon">✅</div>
               <div class="stat-content">
-                <h3>{{ getCompletedMilestonesCount() }}</h3>
-                <p>已完成</p>
+                <h3>{{ getAverageCompletionRate() }}%</h3>
+                <p>平均完成率</p>
               </div>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
-              <div class="stat-icon">⭐</div>
+              <div class="stat-icon">🎯</div>
               <div class="stat-content">
-                <h3>{{ getAverageRating() }}</h3>
-                <p>平均评分</p>
+                <h3>{{ getAverageResolutionRate() }}%</h3>
+                <p>平均解决率</p>
               </div>
             </div>
           </div>
@@ -417,17 +421,21 @@ export class MembersComponent implements OnInit, OnDestroy {
     return total > 0 ? Math.round((completed / total) * 100) : 0;
   }
 
-  getTotalMilestones(): number {
-    return this.members.reduce((total, member) => total + member.milestones.length, 0);
-  }
-
-  getCompletedMilestonesCount(): number {
-    return this.members.reduce((total, member) => total + this.getCompletedMilestones(member), 0);
-  }
-
-  getAverageRating(): number {
+  getAverageParticipationRate(): number {
     if (this.members.length === 0) return 0;
-    const totalRating = this.members.reduce((total, member) => total + member.performance.rating, 0);
-    return Math.round((totalRating / this.members.length) * 10) / 10;
+    const totalRate = this.members.reduce((total, member) => total + member.participationRate, 0);
+    return Math.round(totalRate / this.members.length);
+  }
+
+  getAverageCompletionRate(): number {
+    if (this.members.length === 0) return 0;
+    const totalRate = this.members.reduce((total, member) => total + member.assignmentCompletionRate, 0);
+    return Math.round(totalRate / this.members.length);
+  }
+
+  getAverageResolutionRate(): number {
+    if (this.members.length === 0) return 0;
+    const totalRate = this.members.reduce((total, member) => total + member.bottleneckResolutionRate, 0);
+    return Math.round(totalRate / this.members.length);
   }
 }
