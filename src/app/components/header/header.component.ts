@@ -25,6 +25,12 @@ import { RouterModule } from '@angular/router';
                (click)="closeMenu()">
                首页
             </a>
+            <a routerLink="/members" 
+               routerLinkActive="active" 
+               class="nav-link"
+               (click)="closeMenu()">
+               团队成员
+            </a>
             <a routerLink="/about" 
                routerLinkActive="active" 
                class="nav-link"
