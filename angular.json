@@ -28,8 +28,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/404.html",
-              "src/set-base-href.js"
+              "src/404.html"
             ],
             "styles": [
               "src/styles.scss"
@@ -58,7 +57,8 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "baseHref": "/"
             }
           },
           "defaultConfiguration": "production"

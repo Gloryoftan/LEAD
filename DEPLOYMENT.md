@@ -4,10 +4,10 @@
 
 您的Angular应用在GitHub Pages上出现404错误的问题已经解决，同时修复了本地开发环境的白屏问题。主要修复包括：
 
-### 1. 智能base href配置
-- 保持 `src/index.html` 中的 `<base href="/">` 用于本地开发
-- 创建了 `src/set-base-href.js` 脚本，自动检测环境并设置正确的base href
-- 在GitHub Pages上自动设置为 `/LEAD/`，在本地开发时保持 `/`
+### 1. 环境配置的base href
+- 生产环境：`src/index.html` 中设置为 `<base href="/LEAD/">`
+- 开发环境：通过 `angular.json` 配置覆盖为 `<base href="/">`
+- 创建了环境配置文件来管理不同环境的设置
 
 ### 2. 创建了GitHub Actions工作流
 - 文件位置：`.github/workflows/deploy.yml`
@@ -19,8 +19,9 @@
 - 自动重定向到主页
 
 ### 4. 更新了构建脚本
-- 简化了 `build:gh-pages` 脚本
-- 智能脚本会自动处理不同环境的base href
+- 开发环境：`npm start` 使用development配置，base href为 `/`
+- 生产环境：`npm run build:gh-pages` 使用production配置，base href为 `/LEAD/`
+- 通过Angular CLI的配置系统自动处理不同环境
 
 ## 部署步骤
 
