@@ -26,7 +26,7 @@ import { CommonModule } from '@angular/common';
                 <span class="social-icon">🐦</span>
                 Twitter
               </a>
-              <a href="mailto:your-email@example.com" class="social-link">
+              <a href="mailto:your-email&#64;example.com" class="social-link">
                 <span class="social-icon">📧</span>
                 Email
               </a>
@@ -62,7 +62,7 @@ import { CommonModule } from '@angular/common';
               </p>
               <p class="contact-item">
                 <span class="contact-icon">📧</span>
-                your-email@example.com
+                your-email&#64;example.com
               </p>
               <p class="contact-item">
                 <span class="contact-icon">🌐</span>

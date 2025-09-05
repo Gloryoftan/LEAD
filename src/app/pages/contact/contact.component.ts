@@ -106,7 +106,7 @@ import { FormsModule } from '@angular/forms';
                 <div class="info-content">
                   <h3 class="info-label">邮箱地址</h3>
                   <p class="info-value">
-                    <a href="mailto:your-email@example.com">your-email@example.com</a>
+                    <a href="mailto:your-email&#64;example.com">your-email&#64;example.com</a>
                   </p>
                 </div>
               </div>

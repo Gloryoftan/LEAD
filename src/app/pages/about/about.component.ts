@@ -70,7 +70,7 @@ import { CommonModule } from '@angular/common';
               </p>
               <div class="member-social">
                 <a href="https://github.com/yourusername" target="_blank" class="social-link">GitHub</a>
-                <a href="mailto:your-email@example.com" class="social-link">Email</a>
+                <a href="mailto:your-email&#64;example.com" class="social-link">Email</a>
               </div>
             </div>
           </div>
