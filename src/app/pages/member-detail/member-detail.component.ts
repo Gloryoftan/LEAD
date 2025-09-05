@@ -220,8 +220,11 @@ Chart.register(...registerables);
       border-radius: 20px;
       font-size: 0.8rem;
       font-weight: 600;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(10px);
+      color: white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .profile-info {
@@ -232,25 +235,30 @@ Chart.register(...registerables);
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .member-title {
       font-size: 1.5rem;
-      opacity: 0.9;
+      color: rgba(255, 255, 255, 0.95);
       margin-bottom: 0.25rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     .member-department {
       font-size: 1.1rem;
-      opacity: 0.8;
+      color: rgba(255, 255, 255, 0.9);
       margin-bottom: 1rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     .member-bio {
       font-size: 1.1rem;
       line-height: 1.6;
-      opacity: 0.9;
+      color: rgba(255, 255, 255, 0.95);
       margin-bottom: 2rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     .member-meta {
@@ -265,14 +273,17 @@ Chart.register(...registerables);
     .meta-label {
       display: block;
       font-size: 0.9rem;
-      opacity: 0.8;
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 0.25rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     .meta-value {
       display: block;
       font-size: 1.5rem;
       font-weight: 600;
+      color: white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     .timeline-section {
@@ -460,6 +471,11 @@ Chart.register(...registerables);
       color: #6c757d;
       margin-right: 1rem;
       min-width: 80px;
+    }
+
+    .meta-value {
+      color: #2c3e50;
+      font-weight: 500;
     }
 
     .tags {

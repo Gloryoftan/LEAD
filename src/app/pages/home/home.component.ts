@@ -168,6 +168,8 @@ import { CommonModule } from '@angular/common';
           font-weight: 700;
           margin-bottom: 1.5rem;
           line-height: 1.2;
+          color: white;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
           
           .highlight {
             background: rgba(255, 255, 255, 0.2);
@@ -179,8 +181,9 @@ import { CommonModule } from '@angular/common';
         .hero-subtitle {
           font-size: 1.3rem;
           margin-bottom: 2rem;
-          opacity: 0.9;
+          color: rgba(255, 255, 255, 0.95);
           line-height: 1.6;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
         
         .hero-actions {
@@ -312,12 +315,15 @@ import { CommonModule } from '@angular/common';
         .cta-title {
           font-size: 2.5rem;
           margin-bottom: 1rem;
+          color: white;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .cta-subtitle {
           font-size: 1.2rem;
           margin-bottom: 2rem;
-          opacity: 0.9;
+          color: rgba(255, 255, 255, 0.95);
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
         
         .cta-actions {
