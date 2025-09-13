@@ -7,6 +7,8 @@ export interface Milestone {
   category: 'leadership' | 'training' | 'project' | 'achievement' | 'certification';
   priority: 'high' | 'medium' | 'low';
   tags: string[];
+  clickable?: boolean;
+  link?: string;
 }
 
 export interface Member {

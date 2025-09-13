@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { MemberService } from '../../services/member.service';
 import { Member, Milestone } from '../../models/member.model';
@@ -77,9 +77,14 @@ Chart.register(...registerables);
                   </div>
                 </div>
                 
-                <div class="timeline-content">
+                <div class="timeline-content" 
+                     [class.clickable]="milestone.clickable"
+                     (click)="onMilestoneClick(milestone)">
                   <div class="milestone-header">
-                    <h3 class="milestone-title">{{ milestone.title }}</h3>
+                    <h3 class="milestone-title">
+                      {{ milestone.title }}
+                      <span *ngIf="milestone.clickable" class="click-indicator">🔗</span>
+                    </h3>
                     <div class="milestone-badges">
                       <span class="status-badge" [class]="milestone.status">
                         {{ getStatusText(milestone.status) }}
@@ -369,6 +374,25 @@ Chart.register(...registerables);
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content.clickable {
+      cursor: pointer;
+      border: 2px solid transparent;
+      background: linear-gradient(white, white) padding-box,
+                  linear-gradient(135deg, #667eea 0%, #764ba2 100%) border-box;
+    }
+
+    .timeline-content.clickable:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+    }
+
+    .click-indicator {
+      margin-left: 0.5rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
     }
 
     .timeline-item:nth-child(odd) .timeline-content {
@@ -678,6 +702,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private memberService: MemberService
   ) {}
 
@@ -796,6 +821,12 @@ export class MemberDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getRandomProgress(): number {
     return Math.floor(Math.random() * 40) + 30; // 30-70% 的随机进度
+  }
+
+  onMilestoneClick(milestone: Milestone): void {
+    if (milestone.clickable && milestone.link) {
+      this.router.navigate([milestone.link]);
+    }
   }
 
   private createSkillsChart(): void {

@@ -12,13 +12,15 @@
       "milestones": [
         {
           "id": "m1",
-          "title": "完成领导力基础培训",
-          "description": "通过LEAD项目第一阶段领导力基础课程",
-          "completedDate": "2024-03-15",
+          "title": "入学证书",
+          "description": "获得LEAD项目第二期录取通知书，正式成为项目学员",
+          "completedDate": "2024-01-15",
           "status": "completed",
-          "category": "training",
+          "category": "certification",
           "priority": "high",
-          "tags": ["领导力", "基础培训"]
+          "tags": ["入学", "录取", "证书"],
+          "clickable": true,
+          "link": "/admission-certificate"
         },
         {
           "id": "m2",

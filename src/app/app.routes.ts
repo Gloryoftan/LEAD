@@ -22,6 +22,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/member-detail/member-detail.component').then(m => m.MemberDetailComponent)
   },
   {
+    path: 'admission-certificate',
+    loadComponent: () => import('./pages/admission-certificate/admission-certificate.component').then(m => m.AdmissionCertificateComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }
