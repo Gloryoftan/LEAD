@@ -738,8 +738,316 @@ export class AdmissionCertificateComponent implements OnInit {
     }
   }
 
-  downloadCertificate() {
-    // 这里可以实现证书下载功能
-    alert('证书下载功能即将推出！');
+  async downloadCertificate() {
+    if (this.isGenerating) return;
+    
+    this.isGenerating = true;
+    
+    try {
+      // 生成证书图片
+      const imageDataUrl = await this.generateCertificateImage();
+      
+      // 创建下载链接
+      const link = document.createElement('a');
+      link.download = `LEAD项目录取通知书_${new Date().toISOString().split('T')[0]}.png`;
+      link.href = imageDataUrl;
+      
+      // 触发下载
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // 显示成功提示
+      this.showSuccessMessage();
+      
+    } catch (error) {
+      console.error('生成证书失败:', error);
+      alert('生成证书失败，请重试');
+    } finally {
+      this.isGenerating = false;
+    }
+  }
+
+  private async generateCertificateImage(): Promise<string> {
+    const canvas = this.certificateCanvas.nativeElement;
+    const ctx = canvas.getContext('2d');
+    
+    if (!ctx) {
+      throw new Error('无法获取Canvas上下文');
+    }
+
+    // 设置Canvas尺寸
+    canvas.width = 1200;
+    canvas.height = 800;
+
+    // 绘制背景
+    this.drawBackground(ctx);
+    
+    // 绘制边框装饰
+    this.drawBorder(ctx);
+    
+    // 绘制印章
+    this.drawSeal(ctx);
+    
+    // 绘制标题
+    this.drawTitle(ctx);
+    
+    // 绘制内容
+    this.drawContent(ctx);
+    
+    // 绘制签名区域
+    this.drawSignature(ctx);
+    
+    // 绘制装饰元素
+    this.drawDecorations(ctx);
+
+    // 返回图片数据URL
+    return canvas.toDataURL('image/png', 1.0);
+  }
+
+  private drawBackground(ctx: CanvasRenderingContext2D) {
+    const canvas = this.certificateCanvas.nativeElement;
+    // 绘制渐变背景
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, '#f8f9fa');
+    gradient.addColorStop(1, '#ffffff');
+    
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // 绘制纹理
+    ctx.fillStyle = 'rgba(102, 126, 234, 0.05)';
+    for (let i = 0; i < 100; i++) {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const size = Math.random() * 3 + 1;
+      ctx.beginPath();
+      ctx.arc(x, y, size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  private drawBorder(ctx: CanvasRenderingContext2D) {
+    const canvas = this.certificateCanvas.nativeElement;
+    // 绘制金色边框
+    const borderWidth = 20;
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, '#ffd700');
+    gradient.addColorStop(0.5, '#ffed4e');
+    gradient.addColorStop(1, '#ffd700');
+    
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = borderWidth;
+    ctx.strokeRect(borderWidth / 2, borderWidth / 2, 
+                   canvas.width - borderWidth, canvas.height - borderWidth);
+    
+    // 绘制内边框
+    ctx.strokeStyle = '#d4af37';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(borderWidth + 10, borderWidth + 10, 
+                   canvas.width - borderWidth * 2 - 20, canvas.height - borderWidth * 2 - 20);
+  }
+
+  private drawSeal(ctx: CanvasRenderingContext2D) {
+    const canvas = this.certificateCanvas.nativeElement;
+    const centerX = canvas.width / 2;
+    const centerY = 200;
+    const radius = 80;
+    
+    // 绘制印章背景
+    const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+    gradient.addColorStop(0, '#667eea');
+    gradient.addColorStop(1, '#764ba2');
+    
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 绘制印章边框
+    ctx.strokeStyle = '#ffd700';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // 绘制印章文字
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 24px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('LEAD', centerX, centerY - 10);
+    
+    ctx.font = 'bold 12px Arial';
+    ctx.fillText('PROGRAM', centerX, centerY + 15);
+  }
+
+  private drawTitle(ctx: CanvasRenderingContext2D) {
+    const canvas = this.certificateCanvas.nativeElement;
+    // 绘制主标题
+    ctx.fillStyle = '#2c3e50';
+    ctx.font = 'bold 48px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('录取通知书', canvas.width / 2, 350);
+    
+    // 绘制副标题
+    ctx.fillStyle = '#667eea';
+    ctx.font = 'bold 20px Arial';
+    ctx.fillText('ADMISSION CERTIFICATE', canvas.width / 2, 380);
+  }
+
+  private drawContent(ctx: CanvasRenderingContext2D) {
+    const canvas = this.certificateCanvas.nativeElement;
+    const startY = 450;
+    const lineHeight = 35;
+    const leftMargin = 150;
+    const rightMargin = 150;
+    const maxWidth = canvas.width - leftMargin - rightMargin;
+    
+    // 绘制内容文本
+    ctx.fillStyle = '#444';
+    ctx.font = '18px Arial';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    
+    const contentLines = [
+      '亲爱的学员，',
+      '',
+      '恭喜您！经过严格的选拔和评估，我们非常高兴地通知您，您已被正式录取为',
+      '《D128 LEAD项目第二期》的学员。',
+      '',
+      '您展现出的领导力潜质和学习热情深深打动了我们。在接下来的学习旅程中，',
+      '我们将共同探索领导力的奥秘，提升您的炼能、韧性、共生三大核心能力。',
+      '',
+      '项目详情：',
+      '• 系统化领导力培训',
+      '• 团队协作实践',
+      '• 个性化成长路径',
+      '• DLC人才池机会'
+    ];
+    
+    let currentY = startY;
+    contentLines.forEach(line => {
+      if (line.trim() === '') {
+        currentY += lineHeight / 2;
+        return;
+      }
+      
+      // 处理长文本换行
+      const words = line.split('');
+      let currentLine = '';
+      let lineY = currentY;
+      
+      for (let i = 0; i < words.length; i++) {
+        const testLine = currentLine + words[i];
+        const metrics = ctx.measureText(testLine);
+        
+        if (metrics.width > maxWidth && currentLine !== '') {
+          ctx.fillText(currentLine, leftMargin, lineY);
+          currentLine = words[i];
+          lineY += lineHeight;
+        } else {
+          currentLine = testLine;
+        }
+      }
+      
+      if (currentLine) {
+        ctx.fillText(currentLine, leftMargin, lineY);
+        lineY += lineHeight;
+      }
+      
+      currentY = lineY;
+    });
+  }
+
+  private drawSignature(ctx: CanvasRenderingContext2D) {
+    const canvas = this.certificateCanvas.nativeElement;
+    const signatureY = 700;
+    const centerX = canvas.width / 2;
+    
+    // 绘制签名线
+    ctx.strokeStyle = '#667eea';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(centerX - 100, signatureY);
+    ctx.lineTo(centerX + 100, signatureY);
+    ctx.stroke();
+    
+    // 绘制签名信息
+    ctx.fillStyle = '#666';
+    ctx.font = '16px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    
+    ctx.fillText('项目负责人', centerX - 100, signatureY + 20);
+    ctx.fillText('LEAD项目组', centerX - 100, signatureY + 45);
+    
+    ctx.fillText('签发日期', centerX + 100, signatureY + 20);
+    ctx.fillText(this.currentDate, centerX + 100, signatureY + 45);
+  }
+
+  private drawDecorations(ctx: CanvasRenderingContext2D) {
+    const canvas = this.certificateCanvas.nativeElement;
+    // 绘制角落装饰
+    const decorations = [
+      { x: 100, y: 100, emoji: '🎓' },
+      { x: canvas.width - 100, y: 100, emoji: '🏆' },
+      { x: 100, y: canvas.height - 100, emoji: '📜' },
+      { x: canvas.width - 100, y: canvas.height - 100, emoji: '🎯' }
+    ];
+    
+    decorations.forEach(decoration => {
+      ctx.font = '40px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(decoration.emoji, decoration.x, decoration.y);
+    });
+    
+    // 绘制底部装饰文字
+    ctx.fillStyle = '#999';
+    ctx.font = 'italic 16px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('让每一位Leader，成为改变发生的支点', canvas.width / 2, canvas.height - 50);
+    ctx.fillText('LEAD Program—Ignite change starting from YOU/ME', canvas.width / 2, canvas.height - 30);
+  }
+
+  private showSuccessMessage() {
+    // 创建成功提示
+    const message = document.createElement('div');
+    message.style.cssText = `
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 20px 40px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 10000;
+      animation: slideIn 0.3s ease-out;
+    `;
+    message.textContent = '证书下载成功！🎉';
+    
+    // 添加动画样式
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { opacity: 0; transform: translate(-50%, -60%); }
+        to { opacity: 1; transform: translate(-50%, -50%); }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(message);
+    
+    // 3秒后移除提示
+    setTimeout(() => {
+      document.body.removeChild(message);
+      document.head.removeChild(style);
+    }, 3000);
   }
 }
