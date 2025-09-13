@@ -94,6 +94,16 @@ import { RouterModule } from '@angular/router';
         }
       }
     }
+
+    /* 导出模式：使用纯色替代渐变色 */
+    .export-mode .brand-text {
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      -webkit-text-fill-color: initial !important;
+      background-clip: initial !important;
+      color: #667eea !important;
+      text-shadow: none !important;
+    }
     
     .navbar-menu {
       display: flex;

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import * as AOS from 'aos';
-import html2canvas from 'html2canvas';
+import { ExportService } from '../../services/export.service';
 
 @Component({
   selector: 'app-admission-certificate',
@@ -328,6 +328,16 @@ import html2canvas from 'html2canvas';
       -webkit-text-fill-color: transparent;
       background-clip: text;
       font-weight: 600;
+    }
+
+    /* 导出模式：使用纯色替代渐变色 */
+    .export-mode .highlight {
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      -webkit-text-fill-color: initial !important;
+      background-clip: initial !important;
+      color: #667eea !important;
+      text-shadow: none !important;
     }
 
     .achievement-highlight {
@@ -682,6 +692,8 @@ export class AdmissionCertificateComponent implements OnInit {
   confettiArray: number[] = [];
   isGenerating: boolean = false;
 
+  constructor(private exportService: ExportService) {}
+
   ngOnInit() {
     this.currentDate = new Date().toLocaleDateString('zh-CN', {
       year: 'numeric',
@@ -739,32 +751,9 @@ export class AdmissionCertificateComponent implements OnInit {
     this.isGenerating = true;
     
     try {
-      // 使用html2canvas生成证书图片
-      const canvas = await html2canvas(this.certificateElement.nativeElement, {
-        scale: 2, // 提高分辨率
-        useCORS: true, // 允许跨域资源
-        allowTaint: true, // 允许污染画布
-        backgroundColor: '#ffffff', // 设置白色背景
-        width: this.certificateElement.nativeElement.offsetWidth,
-        height: this.certificateElement.nativeElement.offsetHeight,
-        scrollX: 0,
-        scrollY: 0,
-        windowWidth: window.innerWidth,
-        windowHeight: window.innerHeight
-      });
-      
-      // 转换为图片数据URL
-      const imageDataUrl = canvas.toDataURL('image/png', 1.0);
-      
-      // 创建下载链接
-      const link = document.createElement('a');
-      link.download = `LEAD项目录取通知书_${new Date().toISOString().split('T')[0]}.png`;
-      link.href = imageDataUrl;
-      
-      // 触发下载
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // 使用导出服务，自动处理渐变色文字问题
+      const filename = `LEAD项目录取通知书_${new Date().toISOString().split('T')[0]}.png`;
+      await this.exportService.exportElementAsPNG(this.certificateElement.nativeElement, filename);
       
       // 显示成功提示
       this.showSuccessMessage();
