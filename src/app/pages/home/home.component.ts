@@ -11,14 +11,17 @@ import { CommonModule } from '@angular/common';
       <div class="container">
         <div class="hero-content fade-in-up">
           <h1 class="hero-title">
-            《D128 LEAD项目第二期》
+            《D128 2025-2026 LEAD项目》
           </h1>
           <p class="hero-subtitle">
             让每一位Leader，成为改变发生的支点
           </p>
+          <p class="hero-mission">
+            让每位肩负使命的伙伴，在破局时有人支持，在探索时有路可循
+          </p>
           <div class="hero-actions">
             <a href="https://mp.weixin.qq.com/s/c6qmMhi8uAmrsSPsUM5fJA" target="_blank" class="btn btn-primary">了解更多</a>
-            <a href="/contact" class="btn btn-outline">联系我们</a>
+            <a href="/members" class="btn btn-outline">查看学员</a>
           </div>
         </div>
         <div class="hero-image fade-in">
@@ -32,13 +35,42 @@ import { CommonModule } from '@angular/common';
       </div>
     </section>
 
+    <!-- Background Section -->
+    <section class="background">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">项目背景</h2>
+          <p class="section-subtitle">
+            为渴望突破领导力瓶颈的大区干事提供练兵场&赋能场，破局共生，打造韧性领导力
+          </p>
+        </div>
+        
+        <div class="background-content">
+          <div class="background-text">
+            <h3>我们的愿景</h3>
+            <p>让每一位Leader，成为改变发生的支点</p>
+            
+            <h3>我们的使命</h3>
+            <p>让每位肩负使命的伙伴，在破局时有人支持，在探索时有路可循</p>
+            
+            <h3>核心价值观</h3>
+            <div class="values">
+              <span class="value-tag">炼能</span>
+              <span class="value-tag">韧性</span>
+              <span class="value-tag">共生</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Features Section -->
     <section class="features">
       <div class="container">
         <div class="section-header text-center">
           <h2 class="section-title">项目特色</h2>
           <p class="section-subtitle">
-            为渴望突破领导力瓶颈的大区干事提供练兵场&赋能场
+            为渴望突破领导力瓶颈的大区干事提供练兵场&赋能场，破局共生，打造韧性领导力
           </p>
         </div>
         
@@ -97,7 +129,7 @@ import { CommonModule } from '@angular/common';
     <!-- Stats Section -->
     <section class="stats">
       <div class="container">
-        <div class="grid grid-4">
+        <div class="grid grid-5">
           <div class="stat-item text-center">
             <div class="stat-number">≥85%</div>
             <div class="stat-label">课程参与率</div>
@@ -114,6 +146,10 @@ import { CommonModule } from '@angular/common';
             <div class="stat-number">50%</div>
             <div class="stat-label">人才池转化</div>
           </div>
+          <div class="stat-item text-center">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">公众号阅读量</div>
+          </div>
         </div>
       </div>
     </section>
@@ -127,7 +163,7 @@ import { CommonModule } from '@angular/common';
             LEAD Program—Ignite change starting from YOU/ME
           </p>
           <div class="cta-actions">
-            <a href="/members" class="btn btn-primary">查看学员</a>
+            <a href="/contact" class="btn btn-primary">查看团队</a>
             <a href="https://mp.weixin.qq.com/s/c6qmMhi8uAmrsSPsUM5fJA" target="_blank" class="btn btn-secondary">了解更多</a>
           </div>
         </div>
@@ -170,6 +206,9 @@ import { CommonModule } from '@angular/common';
           line-height: 1.2;
           color: white;
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           
           .highlight {
             background: rgba(255, 255, 255, 0.2);
@@ -180,10 +219,19 @@ import { CommonModule } from '@angular/common';
         
         .hero-subtitle {
           font-size: 1.3rem;
-          margin-bottom: 2rem;
+          margin-bottom: 1rem;
           color: rgba(255, 255, 255, 0.95);
           line-height: 1.6;
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-mission {
+          font-size: 1.1rem;
+          margin-bottom: 2rem;
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.6;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          font-style: italic;
         }
         
         .hero-actions {
@@ -238,6 +286,69 @@ import { CommonModule } from '@angular/common';
               bottom: 20px;
               right: 50px;
               animation-delay: 4.5s;
+            }
+          }
+        }
+      }
+    }
+    
+    .background {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      
+      .section-header {
+        margin-bottom: 4rem;
+        
+        .section-title {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+          font-size: 1.2rem;
+          color: #666;
+        }
+      }
+      
+      .background-content {
+        max-width: 800px;
+        margin: 0 auto;
+        
+        .background-text {
+          text-align: center;
+          
+          h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+          
+          p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+          }
+          
+          .values {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            
+            .value-tag {
+              padding: 0.5rem 1.5rem;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
+              border-radius: 25px;
+              font-weight: 600;
+              font-size: 1rem;
             }
           }
         }
@@ -344,6 +455,19 @@ import { CommonModule } from '@angular/common';
       }
     }
     
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .hero {
+        .hero-content {
+          .hero-title {
+            font-size: 3rem;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: initial;
+          }
+        }
+      }
+    }
+    
     @media (max-width: 768px) {
       .hero {
         padding: 4rem 0 2rem;
@@ -356,7 +480,10 @@ import { CommonModule } from '@angular/common';
         
         .hero-content {
           .hero-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: initial;
           }
           
           .hero-subtitle {
@@ -377,6 +504,37 @@ import { CommonModule } from '@angular/common';
               width: 60px;
               height: 60px;
               font-size: 1.5rem;
+            }
+          }
+        }
+      }
+      
+      .background {
+        padding: 4rem 0;
+        
+        .section-header {
+          margin-bottom: 2rem;
+          
+          .section-title {
+            font-size: 2rem;
+          }
+        }
+        
+        .background-content {
+          .background-text {
+            h3 {
+              font-size: 1.3rem;
+            }
+            
+            p {
+              font-size: 1rem;
+            }
+            
+            .values {
+              .value-tag {
+                font-size: 0.9rem;
+                padding: 0.4rem 1.2rem;
+              }
             }
           }
         }
@@ -419,6 +577,20 @@ import { CommonModule } from '@angular/common';
         }
       }
     }
+    
+    @media (max-width: 480px) {
+      .hero {
+        .hero-content {
+          .hero-title {
+            font-size: 1.8rem;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: initial;
+          }
+        }
+      }
+    }
   `]
 })
 export class HomeComponent {}
+

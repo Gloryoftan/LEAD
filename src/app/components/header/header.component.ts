@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
         <nav class="navbar">
           <div class="navbar-brand">
             <a routerLink="/" class="brand-link">
-              <span class="brand-icon">🚀</span>
+              <img src="assets/TM_Logo.png" alt="Toastmasters International" class="brand-logo">
               <span class="brand-text">LEAD</span>
             </a>
           </div>
@@ -41,7 +41,7 @@ import { RouterModule } from '@angular/router';
                routerLinkActive="active" 
                class="nav-link"
                (click)="closeMenu()">
-               联系
+               团队
             </a>
           </div>
           
@@ -81,9 +81,11 @@ import { RouterModule } from '@angular/router';
         font-weight: 700;
         font-size: 1.5rem;
         
-        .brand-icon {
-          font-size: 1.8rem;
+        .brand-logo {
+          height: 2rem;
+          width: auto;
           margin-right: 0.5rem;
+          object-fit: contain;
         }
         
         .brand-text {

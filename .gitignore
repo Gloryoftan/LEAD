@@ -35,4 +35,4 @@ dist/
 .env.production.local
 
 .cursorrules
-assets/
+tmp/
