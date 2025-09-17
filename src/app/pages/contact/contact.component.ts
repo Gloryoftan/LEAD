@@ -129,9 +129,11 @@ import { FormsModule } from '@angular/forms';
             content: '•';
             position: absolute;
             left: 0;
+            top: 0.1em;
             color: #667eea;
             font-weight: bold;
             font-size: 1.2rem;
+            line-height: 1;
           }
         }
       }
@@ -168,6 +170,12 @@ import { FormsModule } from '@angular/forms';
           li {
             font-size: 0.9rem;
             margin-bottom: 0.6rem;
+            
+            &::before {
+              font-size: 1rem;
+              line-height: 1;
+              top: 0.1em;
+            }
           }
         }
       }
@@ -250,7 +258,7 @@ export class ContactComponent {
     },
     {
       role: '线下课程运营官',
-      responsible: '小马哥—杭州场（Ronno推荐长沙、武汉或安徽候选人）',
+      responsible: '小马哥—杭州场',
       responsibilities: [
         '组织线下活动',
         '包括场地、角色、茶歇、流程确认、议程'

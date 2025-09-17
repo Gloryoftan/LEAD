@@ -185,8 +185,11 @@ import { CommonModule } from '@angular/common';
         
         <div class="timeline-container">
           <div class="timeline-item">
-            <div class="timeline-date">愿景</div>
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
             <div class="timeline-content">
+              <div class="timeline-date">愿景</div>
               <h3 class="timeline-title">让每一位Leader，成为改变发生的支点</h3>
               <p class="timeline-description">
                 我们相信每个人都有成为领导者的潜力，通过系统化的培训和实践，
@@ -196,8 +199,11 @@ import { CommonModule } from '@angular/common';
           </div>
           
           <div class="timeline-item">
-            <div class="timeline-date">使命</div>
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
             <div class="timeline-content">
+              <div class="timeline-date">使命</div>
               <h3 class="timeline-title">让每位肩负使命的伙伴，在破局时有人支持，在探索时有路可循</h3>
               <p class="timeline-description">
                 为每一位渴望突破领导力瓶颈的大区干事提供练兵场和赋能场，
@@ -207,8 +213,11 @@ import { CommonModule } from '@angular/common';
           </div>
           
           <div class="timeline-item">
-            <div class="timeline-date">传播度</div>
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
             <div class="timeline-content">
+              <div class="timeline-date">传播度</div>
               <h3 class="timeline-title">项目故事获大区公众号阅读量500+</h3>
               <p class="timeline-description">
                 通过分享项目故事和学员成长经历，扩大项目影响力，
@@ -447,64 +456,71 @@ import { CommonModule } from '@angular/common';
       .timeline-container {
         max-width: 800px;
         margin: 0 auto;
+        position: relative;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          left: 30px;
+          top: 0;
+          bottom: 0;
+          width: 2px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
         
         .timeline-item {
           display: flex;
+          align-items: flex-start;
           margin-bottom: 3rem;
           position: relative;
           
-          &::before {
-            content: '';
-            position: absolute;
-            left: 150px;
-            top: 0;
-            bottom: -3rem;
-            width: 2px;
-            background: #667eea;
-          }
-          
-          &:last-child::before {
-            display: none;
-          }
-          
-          .timeline-date {
-            width: 120px;
-            font-weight: 600;
-            color: #667eea;
-            text-align: right;
-            padding-right: 2rem;
+          .timeline-marker {
+            width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
+            z-index: 2;
             
-            &::after {
-              content: '';
-              position: absolute;
-              right: -8px;
-              top: 50%;
-              transform: translateY(-50%);
-              width: 16px;
-              height: 16px;
-              background: #667eea;
+            .marker-dot {
+              width: 20px;
+              height: 20px;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
               border-radius: 50%;
               border: 4px solid white;
+              box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
             }
           }
           
           .timeline-content {
             flex: 1;
+            margin-left: 2rem;
             background: white;
             padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+            
+            .timeline-date {
+              font-size: 0.9rem;
+              font-weight: 600;
+              color: #667eea;
+              margin-bottom: 0.5rem;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
             
             .timeline-title {
               font-size: 1.3rem;
-              margin-bottom: 0.5rem;
+              margin-bottom: 0.8rem;
               color: #2c3e50;
+              font-weight: 600;
             }
             
             .timeline-description {
               color: #666;
               line-height: 1.6;
+              margin: 0;
             }
           }
         }
@@ -569,22 +585,34 @@ import { CommonModule } from '@angular/common';
         }
         
         .timeline-container {
+          &::before {
+            left: 20px;
+          }
+          
           .timeline-item {
-            flex-direction: column;
-            
-            &::before {
-              left: 20px;
+            .timeline-marker {
+              width: 40px;
+              
+              .marker-dot {
+                width: 16px;
+                height: 16px;
+              }
             }
             
-            .timeline-date {
-              width: auto;
-              text-align: left;
-              padding-left: 3rem;
-              margin-bottom: 1rem;
+            .timeline-content {
+              margin-left: 1rem;
+              padding: 1rem;
               
-              &::after {
-                left: 0;
-                right: auto;
+              .timeline-date {
+                font-size: 0.8rem;
+              }
+              
+              .timeline-title {
+                font-size: 1.1rem;
+              }
+              
+              .timeline-description {
+                font-size: 0.9rem;
               }
             }
           }
