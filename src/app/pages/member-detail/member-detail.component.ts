@@ -377,20 +377,21 @@ Chart.register(...registerables);
       text-align: center;
     }
 
-    .meta-label {
+    .member-header .meta-label {
       display: block;
       font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.95) !important;
       margin-bottom: 0.25rem;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      font-weight: 500;
     }
 
-    .meta-value {
+    .member-header .meta-value {
       display: block;
       font-size: 1.5rem;
-      font-weight: 600;
-      color: white;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      font-weight: 700;
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     }
 
     .timeline-section {
@@ -495,6 +496,19 @@ Chart.register(...registerables);
       margin-left: 0.5rem;
       font-size: 0.8rem;
       opacity: 0.7;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-3px);
+      }
+      60% {
+        transform: translateY(-2px);
+      }
     }
 
     .timeline-item:nth-child(odd) .timeline-content {
@@ -592,14 +606,14 @@ Chart.register(...registerables);
       margin-bottom: 0.5rem;
     }
 
-    .meta-label {
+    .milestone-meta .meta-label {
       font-weight: 600;
       color: #6c757d;
       margin-right: 1rem;
       min-width: 80px;
     }
 
-    .meta-value {
+    .milestone-meta .meta-value {
       color: #2c3e50;
       font-weight: 500;
     }
@@ -905,6 +919,30 @@ Chart.register(...registerables);
 
       .goals-grid {
         grid-template-columns: 1fr;
+      }
+
+      .timeline-content.clickable {
+        border: 2px solid #667eea;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+      }
+
+      .click-indicator {
+        font-size: 1rem;
+        opacity: 1;
+        color: #667eea;
+      }
+
+      .timeline-content.clickable::after {
+        content: '点击查看';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #667eea;
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: 500;
       }
     }
   `]

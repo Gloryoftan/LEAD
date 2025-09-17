@@ -1,7 +1,7 @@
 {
-  "name": "lead-angular-app",
+  "name": "d128-lead-project",
   "version": "1.0.0",
-  "description": "LEAD Angular应用",
+  "description": "D128 2025-2026 LEAD项目 - 让每一位Leader，成为改变发生的支点",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration development",
@@ -38,9 +38,11 @@
     "typescript": "~5.2.0"
   },
   "keywords": [
-    "angular",
-    "typescript",
-    "web-app"
+    "D128",
+    "LEAD项目",
+    "Toastmasters",
+    "领导力",
+    "培训"
   ],
   "author": "Samari Tan",
   "license": "MIT"

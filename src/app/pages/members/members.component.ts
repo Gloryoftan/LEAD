@@ -51,6 +51,12 @@ import { Member } from '../../models/member.model';
                 <p class="member-english" *ngIf="member.englishName">{{ member.englishName }}</p>
                 <p class="member-id" *ngIf="member.memberId">会员号: {{ member.memberId }}</p>
                 
+                <!-- 手机端点击提示 -->
+                <div class="mobile-tap-hint">
+                  <span class="tap-icon">👆</span>
+                  <span class="tap-text">点击查看详情</span>
+                </div>
+                
                 <div class="member-stats">
                   <div class="stat-item">
                     <span class="stat-label">参与率</span>
@@ -171,6 +177,11 @@ import { Member } from '../../models/member.model';
     .member-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .member-card:active {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     }
 
     .member-avatar {
@@ -325,6 +336,44 @@ import { Member } from '../../models/member.model';
       font-weight: 500;
     }
 
+    .mobile-tap-hint {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      animation: pulse 2s infinite;
+    }
+
+    .tap-icon {
+      font-size: 1.2rem;
+    }
+
+    .tap-text {
+      font-size: 0.85rem;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
     .team-stats-section {
       padding: 4rem 0;
       background: white;
@@ -373,6 +422,11 @@ import { Member } from '../../models/member.model';
 
       .member-card {
         padding: 1.5rem;
+        position: relative;
+      }
+
+      .mobile-tap-hint {
+        display: flex !important;
       }
 
       .stats-grid {
