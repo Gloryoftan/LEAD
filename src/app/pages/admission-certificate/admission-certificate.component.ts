@@ -768,8 +768,8 @@ export class AdmissionCertificateComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // 设置固定的日期为2024年9月20日
-    this.currentDate = '2024年9月20日';
+    // 设置固定的日期为2025年9月20日
+    this.currentDate = '2025年9月20日';
 
     // 从路由参数获取成员ID
     this.route.params.subscribe(params => {
@@ -838,7 +838,7 @@ export class AdmissionCertificateComponent implements OnInit {
     try {
       // 使用导出服务，自动处理渐变色文字问题
       const memberNameForFile = this.memberName ? `_${this.memberName}` : '';
-      const filename = `LEAD项目录取通知书${memberNameForFile}_2024-09-20.png`;
+      const filename = `LEAD项目录取通知书${memberNameForFile}_2025-09-20.png`;
       await this.exportService.exportElementAsPNG(this.certificateElement.nativeElement, filename);
       
       // 显示成功提示
