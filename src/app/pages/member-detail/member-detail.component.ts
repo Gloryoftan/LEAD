@@ -485,11 +485,32 @@ Chart.register(...registerables);
       border: 2px solid transparent;
       background: linear-gradient(white, white) padding-box,
                   linear-gradient(135deg, #667eea 0%, #764ba2 100%) border-box;
+      position: relative;
+    }
+
+    .timeline-content.clickable::before {
+      content: '点击查看';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      z-index: 1;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
     }
 
     .timeline-content.clickable:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+    }
+
+    .timeline-content.clickable:hover::before {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
     }
 
     .click-indicator {
@@ -740,6 +761,25 @@ Chart.register(...registerables);
       z-index: 1000;
     }
 
+    .back-button .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .back-button .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
     .loading-state {
       display: flex;
       flex-direction: column;
@@ -926,23 +966,25 @@ Chart.register(...registerables);
         background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
       }
 
-      .click-indicator {
-        font-size: 1rem;
-        opacity: 1;
-        color: #667eea;
-      }
-
-      .timeline-content.clickable::after {
+      .timeline-content.clickable::before {
         content: '点击查看';
         position: absolute;
         top: 10px;
         right: 10px;
-        background: #667eea;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         padding: 0.25rem 0.5rem;
         border-radius: 12px;
         font-size: 0.7rem;
         font-weight: 500;
+        z-index: 1;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+      }
+
+      .click-indicator {
+        font-size: 1rem;
+        opacity: 1;
+        color: #667eea;
       }
     }
   `]

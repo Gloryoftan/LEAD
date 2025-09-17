@@ -337,7 +337,7 @@ import { Member } from '../../models/member.model';
     }
 
     .mobile-tap-hint {
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
@@ -349,6 +349,13 @@ import { Member } from '../../models/member.model';
       font-size: 0.9rem;
       font-weight: 500;
       animation: pulse 2s infinite;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-tap-hint:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
     }
 
     .tap-icon {
@@ -425,9 +432,6 @@ import { Member } from '../../models/member.model';
         position: relative;
       }
 
-      .mobile-tap-hint {
-        display: flex !important;
-      }
 
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
