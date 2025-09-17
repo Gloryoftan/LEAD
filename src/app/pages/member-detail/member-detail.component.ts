@@ -36,6 +36,18 @@ Chart.register(...registerables);
               <p class="member-bio">{{ member.bio }}</p>
               
               <div class="member-meta">
+                <div class="meta-item" *ngIf="member.englishName">
+                  <span class="meta-label">英文名</span>
+                  <span class="meta-value">{{ member.englishName }}</span>
+                </div>
+                <div class="meta-item" *ngIf="member.memberId">
+                  <span class="meta-label">会员号</span>
+                  <span class="meta-value">{{ member.memberId }}</span>
+                </div>
+                <div class="meta-item" *ngIf="member.educationLevel">
+                  <span class="meta-label">教育级</span>
+                  <span class="meta-value">{{ member.educationLevel }}</span>
+                </div>
                 <div class="meta-item">
                   <span class="meta-label">加入时间</span>
                   <span class="meta-value">{{ formatDate(member.joinDate) }}</span>
@@ -112,6 +124,95 @@ Chart.register(...registerables);
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 项目目标 -->
+      <section class="project-goals-section" *ngIf="member.projectGoals">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">项目目标</h2>
+            <p class="section-subtitle">SMART目标框架</p>
+          </div>
+
+          <div class="goals-smart-grid" data-aos="fade-up">
+            <div class="smart-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="smart-icon">🎯</div>
+              <div class="smart-content">
+                <h4 class="smart-title">明确性 (Specific)</h4>
+                <p class="smart-description">{{ member.projectGoals.specific }}</p>
+              </div>
+            </div>
+            <div class="smart-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="smart-icon">📊</div>
+              <div class="smart-content">
+                <h4 class="smart-title">可衡量的 (Measurable)</h4>
+                <p class="smart-description">{{ member.projectGoals.measurable }}</p>
+              </div>
+            </div>
+            <div class="smart-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="smart-icon">✅</div>
+              <div class="smart-content">
+                <h4 class="smart-title">可实现性 (Attainable)</h4>
+                <p class="smart-description">{{ member.projectGoals.attainable }}</p>
+              </div>
+            </div>
+            <div class="smart-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="smart-icon">🔗</div>
+              <div class="smart-content">
+                <h4 class="smart-title">相关性 (Relevant)</h4>
+                <p class="smart-description">{{ member.projectGoals.relevant }}</p>
+              </div>
+            </div>
+            <div class="smart-item" data-aos="fade-up" data-aos-delay="500">
+              <div class="smart-icon">⏰</div>
+              <div class="smart-content">
+                <h4 class="smart-title">时限性 (Time-bound)</h4>
+                <p class="smart-description">{{ member.projectGoals.timeBound }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 卡点分析 -->
+      <section class="pain-points-section" *ngIf="member.painPoints && member.painPoints.length > 0">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">卡点分析</h2>
+            <p class="section-subtitle">挑战与解决方案</p>
+          </div>
+
+          <div class="pain-points-grid" data-aos="fade-up">
+            <div 
+              *ngFor="let painPoint of member.painPoints; let i = index; trackBy: trackByPainPointIndex"
+              class="pain-point-card"
+              [attr.data-aos-delay]="i * 100"
+              data-aos="fade-up"
+            >
+              <div class="pain-point-header">
+                <div class="pain-point-icon">💡</div>
+                <h4 class="pain-point-title">卡点 {{ i + 1 }}</h4>
+              </div>
+              
+              <div class="pain-point-content">
+                <div class="pain-point-section">
+                  <h5 class="section-label">情境</h5>
+                  <p class="section-content">{{ painPoint.situation }}</p>
+                </div>
+                
+                <div class="pain-point-section">
+                  <h5 class="section-label">痛感瞬间关键词</h5>
+                  <p class="section-content">{{ painPoint.keywords }}</p>
+                </div>
+                
+                <div class="pain-point-section">
+                  <h5 class="section-label">希望获得的破局支持</h5>
+                  <p class="section-content">{{ painPoint.support }}</p>
                 </div>
               </div>
             </div>
@@ -269,6 +370,7 @@ Chart.register(...registerables);
     .member-meta {
       display: flex;
       gap: 2rem;
+      flex-wrap: wrap;
     }
 
     .meta-item {
@@ -647,6 +749,122 @@ Chart.register(...registerables);
       100% { transform: rotate(360deg); }
     }
 
+    .project-goals-section {
+      padding: 4rem 0;
+      background: #f8f9fa;
+    }
+
+    .goals-smart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .smart-item {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .smart-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .smart-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .smart-content {
+      flex: 1;
+    }
+
+    .smart-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .smart-description {
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .pain-points-section {
+      padding: 4rem 0;
+      background: white;
+    }
+
+    .pain-points-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .pain-point-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #667eea;
+      transition: transform 0.3s ease;
+    }
+
+    .pain-point-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pain-point-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pain-point-icon {
+      font-size: 1.5rem;
+    }
+
+    .pain-point-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin: 0;
+    }
+
+    .pain-point-content {
+      space-y: 1rem;
+    }
+
+    .pain-point-section {
+      margin-bottom: 1rem;
+    }
+
+    .section-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #667eea;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-content {
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0.75rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+
     @media (max-width: 768px) {
       .member-profile {
         flex-direction: column;
@@ -737,6 +955,10 @@ export class MemberDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   trackByMilestoneId(index: number, milestone: Milestone): string {
     return milestone.id;
+  }
+
+  trackByPainPointIndex(index: number, painPoint: any): number {
+    return index;
   }
 
   getDefaultAvatar(name: string): string {

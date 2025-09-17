@@ -48,6 +48,8 @@ import { Member } from '../../models/member.model';
                 <h3 class="member-name">{{ member.name }}</h3>
                 <p class="member-position">{{ member.position }}</p>
                 <p class="member-department">{{ member.department }}</p>
+                <p class="member-english" *ngIf="member.englishName">{{ member.englishName }}</p>
+                <p class="member-id" *ngIf="member.memberId">会员号: {{ member.memberId }}</p>
                 
                 <div class="member-stats">
                   <div class="stat-item">
@@ -229,6 +231,19 @@ import { Member } from '../../models/member.model';
     .member-department {
       color: #6c757d;
       font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .member-english {
+      color: #667eea;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .member-id {
+      color: #6c757d;
+      font-size: 0.8rem;
       margin-bottom: 1rem;
     }
 

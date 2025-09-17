@@ -11,11 +11,28 @@ export interface Milestone {
   link?: string;
 }
 
+export interface ProjectGoals {
+  specific: string;
+  measurable: string;
+  attainable: string;
+  relevant: string;
+  timeBound: string;
+}
+
+export interface PainPoint {
+  situation: string;
+  keywords: string;
+  support: string;
+}
+
 export interface Member {
   id: string;
   name: string;
+  englishName?: string;
+  memberId?: string;
   position: string;
   department: string;
+  educationLevel?: string;
   avatar?: string;
   email: string;
   joinDate: Date;
@@ -23,6 +40,8 @@ export interface Member {
   skills: string[];
   milestones: Milestone[];
   currentGoals: string[];
+  projectGoals?: ProjectGoals;
+  painPoints?: PainPoint[];
   performance: {
     rating: number; // 1-5
     lastReviewDate: Date;
