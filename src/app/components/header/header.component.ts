@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
         <nav class="navbar">
           <div class="navbar-brand">
             <a routerLink="/" class="brand-link">
-              <img src="assets/TM_Logo.png" alt="Toastmasters International" class="brand-logo">
+              <!-- <img src="assets/TM_Logo.png" alt="Toastmasters International" class="brand-logo"> -->
               <span class="brand-text">LEAD</span>
             </a>
           </div>

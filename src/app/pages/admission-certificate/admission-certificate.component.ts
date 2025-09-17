@@ -38,7 +38,7 @@ import { Member } from '../../models/member.model';
           <div class="certificate-header">
             <div class="header-top">
               <div class="logo-top-left">
-                <img src="assets/TM_Logo.png" alt="Toastmasters Logo" class="tm-logo">
+                <!-- <img src="assets/TM_Logo.png" alt="Toastmasters Logo" class="tm-logo"> -->
               </div>
             </div>
             <div class="seal-container">
@@ -122,7 +122,7 @@ import { Member } from '../../models/member.model';
         <!-- 证书底部装饰 -->
         <div class="certificate-footer">
           <div class="footer-logo">
-            <img src="assets/TM_Logo.png" alt="Toastmasters Logo" class="footer-tm-logo">
+            <!-- <img src="assets/TM_Logo.png" alt="Toastmasters Logo" class="footer-tm-logo"> -->
           </div>
           <div class="footer-text">
             <p>让每一位Leader，成为改变发生的支点</p>
