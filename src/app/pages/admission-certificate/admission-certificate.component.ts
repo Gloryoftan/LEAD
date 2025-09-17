@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import * as AOS from 'aos';
 import { ExportService } from '../../services/export.service';
+import { MemberService } from '../../services/member.service';
+import { Member } from '../../models/member.model';
 
 @Component({
   selector: 'app-admission-certificate',
@@ -34,6 +36,11 @@ import { ExportService } from '../../services/export.service';
         <div #certificateContent class="certificate-content">
           <!-- 标题区域 -->
           <div class="certificate-header">
+            <div class="header-top">
+              <div class="logo-top-left">
+                <img src="assets/TM_Logo.png" alt="Toastmasters Logo" class="tm-logo">
+              </div>
+            </div>
             <div class="seal-container">
               <div class="seal">
                 <div class="seal-inner">
@@ -49,18 +56,18 @@ import { ExportService } from '../../services/export.service';
           <!-- 主要内容 -->
           <div class="certificate-body">
             <div class="greeting">
-              <p class="greeting-text">亲爱的学员，</p>
+              <p class="greeting-text">亲爱的{{ memberName || '学员' }}，</p>
             </div>
 
             <div class="main-content">
               <p class="content-paragraph">
                 恭喜您！经过严格的选拔和评估，我们非常高兴地通知您，您已被正式录取为
-                <span class="highlight">《D128 LEAD项目第二期》</span>的学员。
+                <span class="highlight">《D128 2025-2026 LEAD项目》</span>的学员。
               </p>
 
               <p class="content-paragraph">
                 您展现出的领导力潜质和学习热情深深打动了我们。在接下来的学习旅程中，我们将共同探索领导力的奥秘，提升您的
-                <span class="highlight">炼能、韧性、共生</span>三大核心能力。
+                <span class="highlight">炼能、韧性、共生</span>三大核心能力，让每一位Leader成为改变发生的支点。
               </p>
 
               <div class="achievement-highlight">
@@ -73,23 +80,23 @@ import { ExportService } from '../../services/export.service';
               </div>
 
               <div class="program-details">
-                <h3 class="details-title">项目详情</h3>
+                <h3 class="details-title">项目特色</h3>
                 <div class="details-grid">
                   <div class="detail-item">
-                    <span class="detail-icon">📚</span>
-                    <span class="detail-text">系统化领导力培训</span>
+                    <span class="detail-icon">🎯</span>
+                    <span class="detail-text">炼能：通过系统化培训和实践，提升领导力核心能力</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">💪</span>
+                    <span class="detail-text">韧性：培养面对挑战时的心理韧性和适应能力</span>
                   </div>
                   <div class="detail-item">
                     <span class="detail-icon">🤝</span>
-                    <span class="detail-text">团队协作实践</span>
+                    <span class="detail-text">共生：建立互助共赢的团队文化和协作关系</span>
                   </div>
                   <div class="detail-item">
-                    <span class="detail-icon">🎯</span>
-                    <span class="detail-text">个性化成长路径</span>
-                  </div>
-                  <div class="detail-item">
-                    <span class="detail-icon">🏆</span>
-                    <span class="detail-text">DLC人才池机会</span>
+                    <span class="detail-icon">🌟</span>
+                    <span class="detail-text">成果转化：50%学员进入DLC人才池，实现价值转化</span>
                   </div>
                 </div>
               </div>
@@ -114,8 +121,12 @@ import { ExportService } from '../../services/export.service';
 
         <!-- 证书底部装饰 -->
         <div class="certificate-footer">
+          <div class="footer-logo">
+            <img src="assets/TM_Logo.png" alt="Toastmasters Logo" class="footer-tm-logo">
+          </div>
           <div class="footer-text">
             <p>让每一位Leader，成为改变发生的支点</p>
+            <p>让每位肩负使命的伙伴，在破局时有人支持，在探索时有路可循</p>
             <p>LEAD Program—Ignite change starting from YOU/ME</p>
           </div>
         </div>
@@ -233,6 +244,30 @@ import { ExportService } from '../../services/export.service';
       text-align: center;
       margin-bottom: 3rem;
       position: relative;
+    }
+
+    .header-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .logo-top-left {
+      padding: 1rem;
+    }
+
+    .tm-logo {
+      height: 50px;
+      width: auto;
+      opacity: 0.8;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      transition: all 0.3s ease;
+    }
+
+    .tm-logo:hover {
+      transform: scale(1.05);
+      opacity: 1;
     }
 
     .seal-container {
@@ -452,6 +487,26 @@ import { ExportService } from '../../services/export.service';
       padding: 1.5rem;
       text-align: center;
       margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      opacity: 0.7;
+    }
+
+    .footer-tm-logo {
+      height: 40px;
+      width: auto;
+      filter: grayscale(0.3);
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-tm-logo:hover {
+      opacity: 1;
+      filter: grayscale(0);
     }
 
     .footer-text p {
@@ -659,6 +714,18 @@ import { ExportService } from '../../services/export.service';
       .floating-star {
         font-size: 1.5rem;
       }
+
+      .tm-logo {
+        height: 40px;
+      }
+
+      .logo-top-left {
+        padding: 0.5rem;
+      }
+
+      .footer-tm-logo {
+        height: 35px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -688,17 +755,31 @@ export class AdmissionCertificateComponent implements OnInit {
   @ViewChild('certificateContent', { static: false }) certificateElement!: ElementRef<HTMLDivElement>;
   
   currentDate: string = '';
+  memberName: string = '';
+  member: Member | undefined;
   showCelebration: boolean = false;
   confettiArray: number[] = [];
   isGenerating: boolean = false;
 
-  constructor(private exportService: ExportService) {}
+  constructor(
+    private exportService: ExportService,
+    private route: ActivatedRoute,
+    private memberService: MemberService
+  ) {}
 
   ngOnInit() {
-    this.currentDate = new Date().toLocaleDateString('zh-CN', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    // 设置固定的日期为2024年9月20日
+    this.currentDate = '2024年9月20日';
+
+    // 从路由参数获取成员ID
+    this.route.params.subscribe(params => {
+      const memberId = params['id'];
+      if (memberId) {
+        this.member = this.memberService.getMemberById(memberId);
+        if (this.member) {
+          this.memberName = this.member.name;
+        }
+      }
     });
 
     // 显示庆祝动画
@@ -732,9 +813,13 @@ export class AdmissionCertificateComponent implements OnInit {
 
   shareCertificate() {
     if (navigator.share) {
+      const shareText = this.memberName ? 
+        `恭喜${this.memberName}被LEAD项目录取！` : 
+        '恭喜我被LEAD项目录取！';
+      
       navigator.share({
         title: 'LEAD项目录取通知书',
-        text: '恭喜我被LEAD项目录取！',
+        text: shareText,
         url: window.location.href
       });
     } else {
@@ -752,7 +837,8 @@ export class AdmissionCertificateComponent implements OnInit {
     
     try {
       // 使用导出服务，自动处理渐变色文字问题
-      const filename = `LEAD项目录取通知书_${new Date().toISOString().split('T')[0]}.png`;
+      const memberNameForFile = this.memberName ? `_${this.memberName}` : '';
+      const filename = `LEAD项目录取通知书${memberNameForFile}_2024-09-20.png`;
       await this.exportService.exportElementAsPNG(this.certificateElement.nativeElement, filename);
       
       // 显示成功提示

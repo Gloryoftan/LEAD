@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
           </p>
           <div class="hero-actions">
             <a href="https://mp.weixin.qq.com/s/c6qmMhi8uAmrsSPsUM5fJA" target="_blank" class="btn btn-primary">了解更多</a>
-            <a href="/members" class="btn btn-outline">查看学员</a>
+            <a href="members" class="btn btn-outline">查看学员</a>
           </div>
         </div>
         <div class="hero-image fade-in">
@@ -163,7 +163,7 @@ import { CommonModule } from '@angular/common';
             LEAD Program—Ignite change starting from YOU/ME
           </p>
           <div class="cta-actions">
-            <a href="/contact" class="btn btn-primary">查看团队</a>
+            <a href="contact" class="btn btn-primary">查看团队</a>
             <a href="https://mp.weixin.qq.com/s/c6qmMhi8uAmrsSPsUM5fJA" target="_blank" class="btn btn-secondary">了解更多</a>
           </div>
         </div>
@@ -460,9 +460,11 @@ import { CommonModule } from '@angular/common';
         .hero-content {
           .hero-title {
             font-size: 3rem;
-            white-space: nowrap;
+            white-space: normal;
             overflow: visible;
             text-overflow: initial;
+            word-break: break-word;
+            line-height: 1.2;
           }
         }
       }
@@ -481,9 +483,11 @@ import { CommonModule } from '@angular/common';
         .hero-content {
           .hero-title {
             font-size: 2.2rem;
-            white-space: nowrap;
+            white-space: normal;
             overflow: visible;
             text-overflow: initial;
+            word-break: break-word;
+            line-height: 1.3;
           }
           
           .hero-subtitle {
@@ -583,9 +587,11 @@ import { CommonModule } from '@angular/common';
         .hero-content {
           .hero-title {
             font-size: 1.8rem;
-            white-space: nowrap;
+            white-space: normal;
             overflow: visible;
             text-overflow: initial;
+            word-break: break-word;
+            line-height: 1.3;
           }
         }
       }

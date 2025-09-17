@@ -52,9 +52,9 @@
         "notes": "中区发展积极，需要导师指导提升"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 90,
-      "assignmentCompletionRate": 85,
-      "bottleneckResolutionRate": 80
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "2",
@@ -108,9 +108,9 @@
         "notes": "正在制定项目计划，需要更多指导"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 88,
-      "assignmentCompletionRate": 82,
-      "bottleneckResolutionRate": 78
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "3",
@@ -164,9 +164,9 @@
         "notes": "项目执行能力强，需要团队管理支持"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 92,
-      "assignmentCompletionRate": 88,
-      "bottleneckResolutionRate": 82
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "4",
@@ -220,9 +220,9 @@
         "notes": "教育质量工作出色，需要团队管理支持"
       },
       "leadershipLevel": "advanced",
-      "participationRate": 95,
-      "assignmentCompletionRate": 90,
-      "bottleneckResolutionRate": 85
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "5",
@@ -276,9 +276,9 @@
         "notes": "俱乐部发展工作积极，需要团队激励支持"
       },
       "leadershipLevel": "advanced",
-      "participationRate": 92,
-      "assignmentCompletionRate": 88,
-      "bottleneckResolutionRate": 85
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "6",
@@ -332,9 +332,9 @@
         "notes": "中区发展积极，需要运营经验指导"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 89,
-      "assignmentCompletionRate": 85,
-      "bottleneckResolutionRate": 80
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "7",
@@ -388,9 +388,9 @@
         "notes": "比赛管理能力强，需要团队支持技巧"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 90,
-      "assignmentCompletionRate": 87,
-      "bottleneckResolutionRate": 82
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "8",
@@ -444,9 +444,9 @@
         "notes": "小区发展积极，需要决策和沟通能力提升"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 87,
-      "assignmentCompletionRate": 83,
-      "bottleneckResolutionRate": 78
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "9",
@@ -500,9 +500,9 @@
         "notes": "培训体系设计能力强，需要架构和决策支持"
       },
       "leadershipLevel": "advanced",
-      "participationRate": 94,
-      "assignmentCompletionRate": 91,
-      "bottleneckResolutionRate": 87
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "10",
@@ -556,9 +556,9 @@
         "notes": "公关工作积极，需要团队激励支持"
       },
       "leadershipLevel": "advanced",
-      "participationRate": 93,
-      "assignmentCompletionRate": 89,
-      "bottleneckResolutionRate": 84
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "11",
@@ -612,9 +612,9 @@
         "notes": "目标设定能力强，需要导师指导支持"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 88,
-      "assignmentCompletionRate": 85,
-      "bottleneckResolutionRate": 81
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "12",
@@ -668,9 +668,9 @@
         "notes": "小区发展良好，需要矛盾调解和积极性调动支持"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 91,
-      "assignmentCompletionRate": 86,
-      "bottleneckResolutionRate": 83
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "13",
@@ -724,9 +724,9 @@
         "notes": "俱乐部发展积极，需要沟通和激励技巧"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 86,
-      "assignmentCompletionRate": 82,
-      "bottleneckResolutionRate": 79
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "14",
@@ -780,9 +780,9 @@
         "notes": "小区发展计划详细，需要人才招募支持"
       },
       "leadershipLevel": "advanced",
-      "participationRate": 93,
-      "assignmentCompletionRate": 90,
-      "bottleneckResolutionRate": 86
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "15",
@@ -836,9 +836,9 @@
         "notes": "中区发展积极，需要团队支持和情绪管理技巧"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 90,
-      "assignmentCompletionRate": 87,
-      "bottleneckResolutionRate": 83
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "16",
@@ -892,9 +892,9 @@
         "notes": "俱乐部发展积极，需要导师和沟通支持"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 87,
-      "assignmentCompletionRate": 84,
-      "bottleneckResolutionRate": 80
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "17",
@@ -948,9 +948,9 @@
         "notes": "小区发展稳定，需要教育体系梳理和团队管理支持"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 89,
-      "assignmentCompletionRate": 85,
-      "bottleneckResolutionRate": 81
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     },
     {
       "id": "18",
@@ -1004,9 +1004,9 @@
         "notes": "小区发展良好，需要高效沟通技巧"
       },
       "leadershipLevel": "intermediate",
-      "participationRate": 91,
-      "assignmentCompletionRate": 87,
-      "bottleneckResolutionRate": 82
+      "participationRate": 100,
+      "assignmentCompletionRate": 100,
+      "bottleneckResolutionRate": 100
     }
   ],
   "lastUpdated": "2024-12-20"

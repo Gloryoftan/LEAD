@@ -1047,7 +1047,12 @@ export class MemberDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onMilestoneClick(milestone: Milestone): void {
     if (milestone.clickable && milestone.link) {
-      this.router.navigate([milestone.link]);
+      // 如果是入学证书链接，添加当前会员ID
+      if (milestone.link === '/admission-certificate' && this.member) {
+        this.router.navigate([milestone.link, this.member.id]);
+      } else {
+        this.router.navigate([milestone.link]);
+      }
     }
   }
 

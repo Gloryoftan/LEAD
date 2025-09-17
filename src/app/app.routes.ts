@@ -26,6 +26,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/admission-certificate/admission-certificate.component').then(m => m.AdmissionCertificateComponent)
   },
   {
+    path: 'admission-certificate/:id',
+    loadComponent: () => import('./pages/admission-certificate/admission-certificate.component').then(m => m.AdmissionCertificateComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }
