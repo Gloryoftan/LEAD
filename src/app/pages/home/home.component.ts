@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   template: `
     <!-- Hero Section -->
     <section class="hero">
@@ -21,7 +22,7 @@ import { CommonModule } from '@angular/common';
           </p>
           <div class="hero-actions">
             <a href="https://mp.weixin.qq.com/s/c6qmMhi8uAmrsSPsUM5fJA" target="_blank" class="btn btn-primary">了解更多</a>
-            <a href="members" class="btn btn-outline">查看学员</a>
+            <a routerLink="/members" class="btn btn-outline">查看学员</a>
           </div>
         </div>
         <div class="hero-image fade-in">
@@ -163,7 +164,7 @@ import { CommonModule } from '@angular/common';
             LEAD Program—Ignite change starting from YOU/ME
           </p>
           <div class="cta-actions">
-            <a href="contact" class="btn btn-primary">查看团队</a>
+            <a routerLink="/contact" class="btn btn-primary">查看团队</a>
             <a href="https://mp.weixin.qq.com/s/c6qmMhi8uAmrsSPsUM5fJA" target="_blank" class="btn btn-secondary">了解更多</a>
           </div>
         </div>
