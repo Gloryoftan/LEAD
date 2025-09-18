@@ -31,14 +31,15 @@ import { Member } from '../../models/member.model';
           <div class="members-quick-nav" data-aos="fade-up">
             <div class="nav-header">
               <h3 class="nav-title">快速导航</h3>
-              <p class="nav-subtitle">点击姓名快速定位</p>
+              <p class="nav-subtitle" *ngIf="!isFiltered">点击姓名筛选显示</p>
+              <p class="nav-subtitle" *ngIf="isFiltered">已筛选: {{ getSelectedMemberName() }} | 再次点击取消</p>
             </div>
             <div class="names-container">
               <span 
                 *ngFor="let member of members; let i = index" 
                 class="name-tag"
-                [class.active]="member.memberId === currentMemberId"
-                (click)="scrollToMember(member)"
+                [class.active]="selectedMemberId && (member.memberId || member.id) === selectedMemberId"
+                (click)="toggleMemberFilter(member)"
               >
                 {{ member.name }}
               </span>
@@ -47,7 +48,7 @@ import { Member } from '../../models/member.model';
 
           <div class="members-grid" data-aos="fade-up">
             <div 
-              *ngFor="let member of members; let i = index; trackBy: trackByMemberId" 
+              *ngFor="let member of filteredMembers; let i = index; trackBy: trackByMemberId" 
               class="member-card"
               [class.loading]="loadingStates[member.memberId || '']"
               [class.disabled]="loadingStates[member.memberId || '']"
@@ -644,8 +645,10 @@ import { Member } from '../../models/member.model';
 })
 export class MembersComponent implements OnInit, OnDestroy {
   members: Member[] = [];
+  filteredMembers: Member[] = [];
   loadingStates: { [key: string]: boolean } = {};
-  currentMemberId: string = '';
+  selectedMemberId: string | null = null;
+  isFiltered: boolean = false;
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -658,6 +661,7 @@ export class MembersComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe(members => {
         this.members = members;
+        this.filteredMembers = members;
       });
   }
 
@@ -769,29 +773,52 @@ export class MembersComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * 滚动到指定会员的卡片
+   * 切换会员筛选状态
    * @param member 会员对象
    */
-  scrollToMember(member: Member): void {
-    this.currentMemberId = member.memberId || '';
+  toggleMemberFilter(member: Member): void {
+    const memberId = member.memberId || member.id;
     
-    // 查找对应的会员卡片
-    const targetCard = document.querySelector(`[data-letter="${this.getFirstLetter(member.name)}"]`);
-    if (targetCard) {
-      // 平滑滚动到目标卡片
-      targetCard.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start',
-        inline: 'nearest'
-      });
-      
-      // 添加高亮效果
-      targetCard.classList.add('highlight');
-      setTimeout(() => {
-        targetCard.classList.remove('highlight');
-        this.currentMemberId = '';
-      }, 2000);
+    console.log('点击会员:', member.name, '当前选中:', this.selectedMemberId, '是否筛选:', this.isFiltered);
+    
+    // 如果点击的是当前选中的会员且正在筛选状态，则取消筛选
+    if (this.selectedMemberId === memberId && this.isFiltered) {
+      console.log('取消筛选');
+      this.clearFilter();
+    } else {
+      console.log('开始筛选');
+      this.filterByMember(member);
     }
+  }
+
+  /**
+   * 按会员筛选
+   * @param member 会员对象
+   */
+  private filterByMember(member: Member): void {
+    this.selectedMemberId = member.memberId || member.id;
+    this.isFiltered = true;
+    this.filteredMembers = [member];
+  }
+
+  /**
+   * 清除筛选
+   */
+  private clearFilter(): void {
+    this.selectedMemberId = null;
+    this.isFiltered = false;
+    this.filteredMembers = [...this.members];
+    console.log('筛选已清除，selectedMemberId:', this.selectedMemberId, 'isFiltered:', this.isFiltered);
+  }
+
+  /**
+   * 获取当前选中会员的姓名
+   * @returns 会员姓名
+   */
+  getSelectedMemberName(): string {
+    if (!this.selectedMemberId) return '';
+    const member = this.members.find(m => (m.memberId || m.id) === this.selectedMemberId);
+    return member ? member.name : '';
   }
 
   /**
