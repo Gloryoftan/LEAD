@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, catchError } from 'rxjs';
 import { Member, TeamData, Milestone } from '../models/member.model';
+import { MEMBERS_DATA } from '../constants/members-data';
 
 @Injectable({
   providedIn: 'root'
@@ -17,22 +18,19 @@ export class MemberService {
   }
 
   private loadMembers(): void {
-    // 首先尝试从JSON文件加载数据
-    this.loadFromJsonFile().subscribe({
-      next: (teamData) => {
-        if (teamData && teamData.members) {
-          this.processMembersData(teamData.members);
-          // 将JSON数据保存到localStorage作为缓存
-          this.saveMembersToStorage(teamData.members);
-        } else {
-          this.loadFromLocalStorage();
-        }
-      },
-      error: (error) => {
-        console.warn('无法从JSON文件加载数据，尝试从localStorage加载:', error);
-        this.loadFromLocalStorage();
-      }
-    });
+    // 优先使用常量数据，提供最佳性能
+    this.loadFromConstants();
+  }
+
+  private loadFromConstants(): void {
+    // 直接从常量加载数据，无需网络请求
+    if (MEMBERS_DATA && MEMBERS_DATA.members) {
+      this.processMembersData(MEMBERS_DATA.members);
+      // 将常量数据保存到localStorage作为缓存
+      this.saveMembersToStorage(MEMBERS_DATA.members);
+    } else {
+      this.loadFromLocalStorage();
+    }
   }
 
   private loadFromJsonFile(): Observable<TeamData | null> {
@@ -242,13 +240,13 @@ export class MemberService {
     return this.members$;
   }
 
-  getMemberById(id: string): Member | undefined {
-    return this.membersSubject.value.find(member => member.id === id);
+  getMemberById(memberId: string): Member | undefined {
+    return this.membersSubject.value.find(member => member.memberId === memberId);
   }
 
   updateMember(updatedMember: Member): void {
     const members = this.membersSubject.value;
-    const index = members.findIndex(member => member.id === updatedMember.id);
+    const index = members.findIndex(member => member.memberId === updatedMember.memberId);
     if (index !== -1) {
       members[index] = updatedMember;
       this.saveMembers(members);
@@ -257,7 +255,7 @@ export class MemberService {
 
   addMilestone(memberId: string, milestone: Milestone): void {
     const members = this.membersSubject.value;
-    const member = members.find(m => m.id === memberId);
+    const member = members.find(m => m.memberId === memberId);
     if (member) {
       member.milestones.push(milestone);
       this.saveMembers(members);
@@ -266,7 +264,7 @@ export class MemberService {
 
   updateMilestone(memberId: string, milestoneId: string, updatedMilestone: Milestone): void {
     const members = this.membersSubject.value;
-    const member = members.find(m => m.id === memberId);
+    const member = members.find(m => m.memberId === memberId);
     if (member) {
       const index = member.milestones.findIndex(m => m.id === milestoneId);
       if (index !== -1) {
@@ -278,7 +276,7 @@ export class MemberService {
 
   deleteMilestone(memberId: string, milestoneId: string): void {
     const members = this.membersSubject.value;
-    const member = members.find(m => m.id === memberId);
+    const member = members.find(m => m.memberId === memberId);
     if (member) {
       member.milestones = member.milestones.filter(m => m.id !== milestoneId);
       this.saveMembers(members);
@@ -286,7 +284,31 @@ export class MemberService {
   }
 
   /**
-   * 重新从JSON文件加载数据
+   * 重新从常量数据加载数据
+   * 用于管理员手动刷新数据
+   */
+  reloadFromConstants(): Observable<boolean> {
+    return new Observable(observer => {
+      try {
+        if (MEMBERS_DATA && MEMBERS_DATA.members) {
+          this.processMembersData(MEMBERS_DATA.members);
+          this.saveMembersToStorage(MEMBERS_DATA.members);
+          observer.next(true);
+          observer.complete();
+        } else {
+          observer.next(false);
+          observer.complete();
+        }
+      } catch (error) {
+        console.error('重新加载常量数据失败:', error);
+        observer.next(false);
+        observer.complete();
+      }
+    });
+  }
+
+  /**
+   * 重新从JSON文件加载数据（备用方法）
    * 用于管理员手动刷新数据
    */
   reloadFromJson(): Observable<boolean> {
@@ -313,7 +335,7 @@ export class MemberService {
   }
 
   /**
-   * 清除localStorage缓存，强制从JSON文件重新加载
+   * 清除localStorage缓存，强制从常量数据重新加载
    */
   clearCacheAndReload(): void {
     localStorage.removeItem(this.STORAGE_KEY);

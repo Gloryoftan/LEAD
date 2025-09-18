@@ -31,7 +31,7 @@ import { Member } from '../../models/member.model';
             <div 
               *ngFor="let member of members; let i = index; trackBy: trackByMemberId" 
               class="member-card"
-              [routerLink]="['/members', member.id]"
+              [routerLink]="['/members', member.memberId]"
               data-aos="fade-up"
               [attr.data-aos-delay]="getAnimationDelay(i)"
             >
@@ -464,7 +464,7 @@ export class MembersComponent implements OnInit, OnDestroy {
   }
 
   trackByMemberId(index: number, member: Member): string {
-    return member.id;
+    return member.memberId || member.id;
   }
 
   getAnimationDelay(index: number): number {

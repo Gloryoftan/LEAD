@@ -773,7 +773,7 @@ export class AdmissionCertificateComponent implements OnInit {
 
     // 从路由参数获取成员ID
     this.route.params.subscribe(params => {
-      const memberId = params['id'];
+      const memberId = params['memberId'];
       if (memberId) {
         this.member = this.memberService.getMemberById(memberId);
         if (this.member) {

@@ -1008,7 +1008,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy, AfterViewInit {
     this.route.params
       .pipe(takeUntil(this.destroy$))
       .subscribe(params => {
-        const memberId = params['id'];
+        const memberId = params['memberId'];
         this.member = this.memberService.getMemberById(memberId);
       });
   }
@@ -1129,7 +1129,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy, AfterViewInit {
     if (milestone.clickable && milestone.link) {
       // 如果是入学证书链接，添加当前会员ID
       if (milestone.link === '/admission-certificate' && this.member) {
-        this.router.navigate([milestone.link, this.member.id]);
+        this.router.navigate([milestone.link, this.member.memberId]);
       } else {
         this.router.navigate([milestone.link]);
       }

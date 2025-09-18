@@ -1,4 +1,6 @@
-{
+import { TeamData } from '../models/member.model';
+
+export const MEMBERS_DATA: TeamData = {
   "members": [
     {
       "id": "1",
@@ -11,7 +13,13 @@
       "email": "lianma@toastmasters.org",
       "joinDate": "2023-06-15",
       "bio": "中区总监，负责T中区成功计划。拥有丰富的Toastmasters经验，致力于提升中区俱乐部质量，希望找到合适导师帮助中区起飞。",
-      "skills": ["团队管理", "战略规划", "俱乐部发展", "会员培养", "领导力提升"],
+      "skills": [
+        "团队管理",
+        "战略规划",
+        "俱乐部发展",
+        "会员培养",
+        "领导力提升"
+      ],
       "milestones": [
         {
           "id": "m1",
@@ -21,12 +29,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["找到合适导师", "提升思维和能力", "让中区实力超强的会员新建俱乐部"],
+      "currentGoals": [
+        "找到合适导师",
+        "提升思维和能力",
+        "让中区实力超强的会员新建俱乐部"
+      ],
       "projectGoals": {
         "specific": "p级中区",
         "measurable": "至少一半俱乐部杰出，新建2家",
@@ -47,7 +63,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-12-01",
         "notes": "中区发展积极，需要导师指导提升"
       },
@@ -67,7 +83,13 @@
       "email": "junlima@toastmasters.org",
       "joinDate": "2023-03-20",
       "bio": "Z1中区总监，负责Div.Z中区成功计划。拥有高级教育背景，正在制定具体的项目目标和实施方案。",
-      "skills": ["中区管理", "教育规划", "团队建设", "项目管理", "战略思维"],
+      "skills": [
+        "中区管理",
+        "教育规划",
+        "团队建设",
+        "项目管理",
+        "战略思维"
+      ],
       "milestones": [
         {
           "id": "m2",
@@ -77,12 +99,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["制定Div.Z中区成功计划", "明确项目目标", "识别关键挑战"],
+      "currentGoals": [
+        "制定Div.Z中区成功计划",
+        "明确项目目标",
+        "识别关键挑战"
+      ],
       "projectGoals": {
         "specific": "待制定",
         "measurable": "待制定",
@@ -103,7 +133,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-11-15",
         "notes": "正在制定项目计划，需要更多指导"
       },
@@ -123,7 +153,13 @@
       "email": "yefengguo@toastmasters.org",
       "joinDate": "2023-09-10",
       "bio": "Y3小区总监，负责台州演讲大会暨台州OUR十周年庆典项目。专注于通过大型活动提升头马在台州的影响力。",
-      "skills": ["活动策划", "团队激励", "进度管理", "社区推广", "会员招募"],
+      "skills": [
+        "活动策划",
+        "团队激励",
+        "进度管理",
+        "社区推广",
+        "会员招募"
+      ],
       "milestones": [
         {
           "id": "m3",
@@ -133,12 +169,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["调动团队积极性", "提升进度管理能力", "成功举办台州演讲大会"],
+      "currentGoals": [
+        "调动团队积极性",
+        "提升进度管理能力",
+        "成功举办台州演讲大会"
+      ],
       "projectGoals": {
         "specific": "台州演讲大会暨台州OUR十周年庆典",
         "measurable": "1.通过本次活动，在台州范围内至少让50个新来宾知道头马\n2.招新5名以上的新会员\n3.通过活动，凝聚小区和俱乐部官员团队，从而达成杰出小区\n4.通过活动，使得至少30名头马会员和前会员，增加头马的归属感，从而增加参会频次",
@@ -159,7 +203,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-10-20",
         "notes": "项目执行能力强，需要团队管理支持"
       },
@@ -179,7 +223,13 @@
       "email": "meglee@toastmasters.org",
       "joinDate": "2023-12-01",
       "bio": "教育质量总监，负责导师计划项目。致力于通过导师计划提升新会员留存率，解决俱乐部新人流失痛点。",
-      "skills": ["教育规划", "导师管理", "项目管理", "团队协调", "质量监控"],
+      "skills": [
+        "教育规划",
+        "导师管理",
+        "项目管理",
+        "团队协调",
+        "质量监控"
+      ],
       "milestones": [
         {
           "id": "m4",
@@ -189,12 +239,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["明确权责划分", "获得团队支持", "推进18家俱乐部导师计划"],
+      "currentGoals": [
+        "明确权责划分",
+        "获得团队支持",
+        "推进18家俱乐部导师计划"
+      ],
       "projectGoals": {
         "specific": "帮助大区俱乐部推进落地导师计划",
         "measurable": "18家俱乐部",
@@ -215,7 +273,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-11-30",
         "notes": "教育质量工作出色，需要团队管理支持"
       },
@@ -235,7 +293,13 @@
       "email": "rachelchang@toastmasters.org",
       "joinDate": "2023-05-10",
       "bio": "俱乐部发展总监，负责Club Retention Committee 128大区俱乐部留存项目。专注于支持3-12人俱乐部的发展困境。",
-      "skills": ["俱乐部发展", "留存管理", "教练培训", "资源整合", "团队支持"],
+      "skills": [
+        "俱乐部发展",
+        "留存管理",
+        "教练培训",
+        "资源整合",
+        "团队支持"
+      ],
       "milestones": [
         {
           "id": "m5",
@@ -245,12 +309,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["达成俱乐部教练全覆盖", "支持俱乐部恢复健康运营", "激励团队成员积极性"],
+      "currentGoals": [
+        "达成俱乐部教练全覆盖",
+        "支持俱乐部恢复健康运营",
+        "激励团队成员积极性"
+      ],
       "projectGoals": {
         "specific": "针对128大区3-12人俱乐部的发展困境开展留存工作",
         "measurable": "力争达成俱乐部教练全覆盖",
@@ -271,7 +343,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-11-20",
         "notes": "俱乐部发展工作积极，需要团队激励支持"
       },
@@ -291,7 +363,13 @@
       "email": "louishuang@toastmasters.org",
       "joinDate": "2023-08-15",
       "bio": "R3中区总监，负责Division R中区成功计划。致力于达成P级中区目标，需要中区运营经验分享。",
-      "skills": ["中区管理", "运营规划", "团队协调", "目标管理", "经验分享"],
+      "skills": [
+        "中区管理",
+        "运营规划",
+        "团队协调",
+        "目标管理",
+        "经验分享"
+      ],
       "milestones": [
         {
           "id": "m6",
@@ -301,12 +379,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["达成P级中区", "平衡头马活动和工作", "保持持续性热情"],
+      "currentGoals": [
+        "达成P级中区",
+        "平衡头马活动和工作",
+        "保持持续性热情"
+      ],
       "projectGoals": {
         "specific": "待制定",
         "measurable": "达成P级中区",
@@ -327,7 +413,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-10-15",
         "notes": "中区发展积极，需要运营经验指导"
       },
@@ -347,7 +433,13 @@
       "email": "francisliu@toastmasters.org",
       "joinDate": "2023-07-20",
       "bio": "教育质量总监，负责GOC比赛护卫队项目。专注于演讲比赛筹备，为参与比赛的会员和官员提供学习培训。",
-      "skills": ["比赛管理", "培训组织", "团队支持", "文化建设", "项目管理"],
+      "skills": [
+        "比赛管理",
+        "培训组织",
+        "团队支持",
+        "文化建设",
+        "项目管理"
+      ],
       "milestones": [
         {
           "id": "m7",
@@ -357,12 +449,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["演讲比赛筹备", "打造健康比赛文化", "支持团队成员成长"],
+      "currentGoals": [
+        "演讲比赛筹备",
+        "打造健康比赛文化",
+        "支持团队成员成长"
+      ],
       "projectGoals": {
         "specific": "演讲比赛筹备",
         "measurable": "待制定",
@@ -383,7 +483,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-11-10",
         "notes": "比赛管理能力强，需要团队支持技巧"
       },
@@ -403,7 +503,13 @@
       "email": "meiwenxu@toastmasters.org",
       "joinDate": "2023-09-05",
       "bio": "G2小区总监，负责G2小区成功计划。致力于达成P级小区目标，正在筹备在公司新建俱乐部。",
-      "skills": ["小区管理", "俱乐部建设", "决策制定", "计划制定", "团队协调"],
+      "skills": [
+        "小区管理",
+        "俱乐部建设",
+        "决策制定",
+        "计划制定",
+        "团队协调"
+      ],
       "milestones": [
         {
           "id": "m8",
@@ -413,12 +519,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["达成P级小区", "提升决策力", "明确目标设定"],
+      "currentGoals": [
+        "达成P级小区",
+        "提升决策力",
+        "明确目标设定"
+      ],
       "projectGoals": {
         "specific": "达成P级小区",
         "measurable": "达成P级小区",
@@ -439,7 +553,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-10-25",
         "notes": "小区发展积极，需要决策和沟通能力提升"
       },
@@ -459,7 +573,13 @@
       "email": "cocoyu@toastmasters.org",
       "joinDate": "2023-11-15",
       "bio": "教育质量总监，负责D128培训委员会项目。致力于为D128打造专业、有效、规范、可持续、可迁移的Toastmasters培训体系。",
-      "skills": ["培训体系设计", "课程开发", "质量监控", "架构设计", "决策管理"],
+      "skills": [
+        "培训体系设计",
+        "课程开发",
+        "质量监控",
+        "架构设计",
+        "决策管理"
+      ],
       "milestones": [
         {
           "id": "m9",
@@ -469,12 +589,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["打造专业培训体系", "做好全局架构设计", "提升决策果断性"],
+      "currentGoals": [
+        "打造专业培训体系",
+        "做好全局架构设计",
+        "提升决策果断性"
+      ],
       "projectGoals": {
         "specific": "为D128打造一个专业、有效、规范、可持续、可迁移的Toastmasters培训体系",
         "measurable": "高质量的系列课程产出",
@@ -495,7 +623,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-12-05",
         "notes": "培训体系设计能力强，需要架构和决策支持"
       },
@@ -515,7 +643,13 @@
       "email": "wencandai@toastmasters.org",
       "joinDate": "2023-04-12",
       "bio": "公关经理，负责PRM逆风计划。致力于提升品牌意识，让D128的会员人人都懂PR，人人都会PR。",
-      "skills": ["品牌管理", "公关策划", "培训组织", "团队激励", "比赛管理"],
+      "skills": [
+        "品牌管理",
+        "公关策划",
+        "培训组织",
+        "团队激励",
+        "比赛管理"
+      ],
       "milestones": [
         {
           "id": "m10",
@@ -525,12 +659,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["提升品牌意识", "组织季度培训", "激励团队积极性"],
+      "currentGoals": [
+        "提升品牌意识",
+        "组织季度培训",
+        "激励团队积极性"
+      ],
       "projectGoals": {
         "specific": "提升品牌意识，让D128的会员人人都懂PR，人人都会PR",
         "measurable": "带领团队成功每季度组织一次培训，半年1次比赛，一次评估",
@@ -551,7 +693,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-11-25",
         "notes": "公关工作积极，需要团队激励支持"
       },
@@ -571,7 +713,13 @@
       "email": "yungao@toastmasters.org",
       "joinDate": "2023-10-08",
       "bio": "G3小区总监，负责2025-2026 LEAD炼能计划。专注于提升小区的团队目标设定及推动能力。",
-      "skills": ["目标设定", "团队推动", "导师指导", "反馈管理", "监督支持"],
+      "skills": [
+        "目标设定",
+        "团队推动",
+        "导师指导",
+        "反馈管理",
+        "监督支持"
+      ],
       "milestones": [
         {
           "id": "m11",
@@ -581,12 +729,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["提升团队目标设定能力", "获得导师指导反馈", "设定生活和职场目标"],
+      "currentGoals": [
+        "提升团队目标设定能力",
+        "获得导师指导反馈",
+        "设定生活和职场目标"
+      ],
       "projectGoals": {
         "specific": "提升小区的团队目标设定及推动能力",
         "measurable": "请导师反馈，在小区成功计划中实践",
@@ -607,7 +763,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-10-30",
         "notes": "目标设定能力强，需要导师指导支持"
       },
@@ -627,7 +783,13 @@
       "email": "xurui@toastmasters.org",
       "joinDate": "2023-08-25",
       "bio": "T2小区总监，负责T2小区成功计划。致力于达成P级小区目标，去年已有3家杰出俱乐部。",
-      "skills": ["小区管理", "俱乐部发展", "矛盾调解", "积极性调动", "团队协调"],
+      "skills": [
+        "小区管理",
+        "俱乐部发展",
+        "矛盾调解",
+        "积极性调动",
+        "团队协调"
+      ],
       "milestones": [
         {
           "id": "m12",
@@ -637,12 +799,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["达成P级小区", "处理团队矛盾", "调动伙伴积极性"],
+      "currentGoals": [
+        "达成P级小区",
+        "处理团队矛盾",
+        "调动伙伴积极性"
+      ],
       "projectGoals": {
         "specific": "达成P级小区",
         "measurable": "达成P级小区",
@@ -663,7 +833,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-11-18",
         "notes": "小区发展良好，需要矛盾调解和积极性调动支持"
       },
@@ -683,7 +853,13 @@
       "email": "qinzhang@toastmasters.org",
       "joinDate": "2023-07-30",
       "bio": "S3小区总监，负责小区成功计划。致力于让3家俱乐部人数各增加到20人，多鼓励官员深入了解头马。",
-      "skills": ["俱乐部发展", "会员招募", "官员培养", "积极性调动", "智慧沟通"],
+      "skills": [
+        "俱乐部发展",
+        "会员招募",
+        "官员培养",
+        "积极性调动",
+        "智慧沟通"
+      ],
       "milestones": [
         {
           "id": "m13",
@@ -693,12 +869,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["增加俱乐部人数到20人", "调动官员积极性", "学习智慧沟通"],
+      "currentGoals": [
+        "增加俱乐部人数到20人",
+        "调动官员积极性",
+        "学习智慧沟通"
+      ],
       "projectGoals": {
         "specific": "让3俱乐部人数各增加到20人",
         "measurable": "每2周拜访一次",
@@ -719,7 +903,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-10-12",
         "notes": "俱乐部发展积极，需要沟通和激励技巧"
       },
@@ -739,7 +923,13 @@
       "email": "danieliu@toastmasters.org",
       "joinDate": "2023-06-20",
       "bio": "S1小区总监，负责Area S1小区成功计划。致力于在2025-2026头马年达成S级小区，基础较好的俱乐部有望延续良好发展势头。",
-      "skills": ["小区管理", "俱乐部发展", "教育项目", "换届管理", "继任者培养"],
+      "skills": [
+        "小区管理",
+        "俱乐部发展",
+        "教育项目",
+        "换届管理",
+        "继任者培养"
+      ],
       "milestones": [
         {
           "id": "m14",
@@ -749,12 +939,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["达成S级小区", "找到有能量的同行者", "培养继任者"],
+      "currentGoals": [
+        "达成S级小区",
+        "找到有能量的同行者",
+        "培养继任者"
+      ],
       "projectGoals": {
         "specific": "在2025-2026头马年达成S级小区",
         "measurable": "S1的5家俱乐部继续存在，4家达成杰出（3家P级及以上，一家D级及以上）",
@@ -775,7 +973,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-12-08",
         "notes": "小区发展计划详细，需要人才招募支持"
       },
@@ -795,7 +993,13 @@
       "email": "mikezheng@toastmasters.org",
       "joinDate": "2023-05-15",
       "bio": "S4中区总监，负责Div.S中区成功计划。致力于达成S级中区，每家小区新增1家D级俱乐部。",
-      "skills": ["中区管理", "俱乐部发展", "团队支持", "情绪管理", "正向引导"],
+      "skills": [
+        "中区管理",
+        "俱乐部发展",
+        "团队支持",
+        "情绪管理",
+        "正向引导"
+      ],
       "milestones": [
         {
           "id": "m15",
@@ -805,12 +1009,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["达成S级中区", "获得团队支持", "处理消极言论"],
+      "currentGoals": [
+        "达成S级中区",
+        "获得团队支持",
+        "处理消极言论"
+      ],
       "projectGoals": {
         "specific": "S级中区",
         "measurable": "新增3家D级俱乐部",
@@ -831,7 +1043,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-11-28",
         "notes": "中区发展积极，需要团队支持和情绪管理技巧"
       },
@@ -851,7 +1063,13 @@
       "email": "cindyzhang@toastmasters.org",
       "joinDate": "2023-09-18",
       "bio": "S2小区总监，负责s2小区成功计划。致力于让三家俱乐部达成DCP，上届已有二家，新达到一家。",
-      "skills": ["俱乐部发展", "DCP管理", "困难突破", "导师支持", "心扉打开"],
+      "skills": [
+        "俱乐部发展",
+        "DCP管理",
+        "困难突破",
+        "导师支持",
+        "心扉打开"
+      ],
       "milestones": [
         {
           "id": "m16",
@@ -861,12 +1079,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["三家俱乐部DCP", "困难俱乐部突破", "打开心扉交流"],
+      "currentGoals": [
+        "三家俱乐部DCP",
+        "困难俱乐部突破",
+        "打开心扉交流"
+      ],
       "projectGoals": {
         "specific": "三家俱乐部DCP",
         "measurable": "2025-2026",
@@ -887,7 +1113,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-10-22",
         "notes": "俱乐部发展积极，需要导师和沟通支持"
       },
@@ -907,7 +1133,13 @@
       "email": "yunyzhang@toastmasters.org",
       "joinDate": "2023-08-08",
       "bio": "T1小区总监，负责Area T1小区成功计划。致力于达成杰出小区，两家杰出俱乐部和一家新建。",
-      "skills": ["小区管理", "俱乐部发展", "教育体系", "团队管理", "任务分配"],
+      "skills": [
+        "小区管理",
+        "俱乐部发展",
+        "教育体系",
+        "团队管理",
+        "任务分配"
+      ],
       "milestones": [
         {
           "id": "m17",
@@ -917,12 +1149,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["达成杰出小区", "梳理教育体系思路", "减少亲力亲为"],
+      "currentGoals": [
+        "达成杰出小区",
+        "梳理教育体系思路",
+        "减少亲力亲为"
+      ],
       "projectGoals": {
         "specific": "达成杰出小区",
         "measurable": "两家杰出俱乐部和一家新建",
@@ -943,7 +1183,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-11-05",
         "notes": "小区发展稳定，需要教育体系梳理和团队管理支持"
       },
@@ -963,7 +1203,13 @@
       "email": "nancyfang@toastmasters.org",
       "joinDate": "2023-07-12",
       "bio": "W2小区总监，负责Div.W小区成功计划。致力于W2达成S级杰出小区，三家俱乐部达成杰出俱乐部。",
-      "skills": ["小区管理", "俱乐部发展", "高效沟通", "任务传递", "团队协调"],
+      "skills": [
+        "小区管理",
+        "俱乐部发展",
+        "高效沟通",
+        "任务传递",
+        "团队协调"
+      ],
       "milestones": [
         {
           "id": "m18",
@@ -973,12 +1219,20 @@
           "status": "completed",
           "category": "certification",
           "priority": "high",
-          "tags": ["入学", "录取", "证书"],
+          "tags": [
+            "入学",
+            "录取",
+            "证书"
+          ],
           "clickable": true,
           "link": "/admission-certificate"
         }
       ],
-      "currentGoals": ["W2达成S级杰出小区", "三家俱乐部达成杰出", "高效沟通任务传递"],
+      "currentGoals": [
+        "W2达成S级杰出小区",
+        "三家俱乐部达成杰出",
+        "高效沟通任务传递"
+      ],
       "projectGoals": {
         "specific": "W2达成S级杰出小区",
         "measurable": "W2三家俱乐部达成杰出俱乐部",
@@ -999,7 +1253,7 @@
         }
       ],
       "performance": {
-        "rating": 5.0,
+        "rating": 5,
         "lastReviewDate": "2024-11-12",
         "notes": "小区发展良好，需要高效沟通技巧"
       },
@@ -1010,4 +1264,4 @@
     }
   ],
   "lastUpdated": "2024-12-20"
-}
+} as any;

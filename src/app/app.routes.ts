@@ -18,7 +18,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/members/members.component').then(m => m.MembersComponent)
   },
   {
-    path: 'members/:id',
+    path: 'members/:memberId',
     loadComponent: () => import('./pages/member-detail/member-detail.component').then(m => m.MemberDetailComponent)
   },
   {
@@ -26,7 +26,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/admission-certificate/admission-certificate.component').then(m => m.AdmissionCertificateComponent)
   },
   {
-    path: 'admission-certificate/:id',
+    path: 'admission-certificate/:memberId',
     loadComponent: () => import('./pages/admission-certificate/admission-certificate.component').then(m => m.AdmissionCertificateComponent)
   },
   {
