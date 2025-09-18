@@ -27,12 +27,31 @@ import { Member } from '../../models/member.model';
             <p class="section-subtitle">{{ members.length }} 位优秀学员</p>
           </div>
 
+          <!-- 学员姓名快速导航 -->
+          <div class="members-quick-nav" data-aos="fade-up">
+            <div class="nav-header">
+              <h3 class="nav-title">快速导航</h3>
+              <p class="nav-subtitle">点击姓名快速定位</p>
+            </div>
+            <div class="names-container">
+              <span 
+                *ngFor="let member of members; let i = index" 
+                class="name-tag"
+                [class.active]="member.memberId === currentMemberId"
+                (click)="scrollToMember(member)"
+              >
+                {{ member.name }}
+              </span>
+            </div>
+          </div>
+
           <div class="members-grid" data-aos="fade-up">
             <div 
               *ngFor="let member of members; let i = index; trackBy: trackByMemberId" 
               class="member-card"
               [class.loading]="loadingStates[member.memberId || '']"
               [class.disabled]="loadingStates[member.memberId || '']"
+              [attr.data-letter]="getFirstLetter(member.name)"
               (click)="navigateToMemberDetail(member)"
               data-aos="fade-up"
               [attr.data-aos-delay]="getAnimationDelay(i)"
@@ -154,6 +173,75 @@ import { Member } from '../../models/member.model';
       background: #f8f9fa;
     }
 
+    .members-quick-nav {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid #f0f0f0;
+    }
+
+    .nav-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .nav-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-subtitle {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .names-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .name-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      color: #495057;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    .name-tag:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+      border-color: #667eea;
+    }
+
+    .name-tag.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-color: #764ba2;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+      transform: translateY(-1px);
+    }
+
     .members-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -200,6 +288,27 @@ import { Member } from '../../models/member.model';
     .member-card.disabled {
       cursor: not-allowed;
       opacity: 0.6;
+    }
+
+    .member-card.highlight {
+      animation: highlightPulse 2s ease-in-out;
+      border: 3px solid #667eea;
+      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    @keyframes highlightPulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+      }
+      50% {
+        transform: scale(1.02);
+        box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+      }
     }
 
     .member-avatar {
@@ -489,6 +598,29 @@ import { Member } from '../../models/member.model';
     }
 
     @media (max-width: 768px) {
+      .members-quick-nav {
+        margin: 1.5rem 0;
+        padding: 1.5rem;
+      }
+
+      .nav-title {
+        font-size: 1.1rem;
+      }
+
+      .nav-subtitle {
+        font-size: 0.8rem;
+      }
+
+      .names-container {
+        gap: 0.5rem;
+      }
+
+      .name-tag {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        min-width: 50px;
+      }
+
       .members-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -498,7 +630,6 @@ import { Member } from '../../models/member.model';
         padding: 1.5rem;
         position: relative;
       }
-
 
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -514,6 +645,7 @@ import { Member } from '../../models/member.model';
 export class MembersComponent implements OnInit, OnDestroy {
   members: Member[] = [];
   loadingStates: { [key: string]: boolean } = {};
+  currentMemberId: string = '';
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -634,5 +766,70 @@ export class MembersComponent implements OnInit, OnDestroy {
       .catch((error) => {
         console.warn('成员详情组件预加载失败:', error);
       });
+  }
+
+  /**
+   * 滚动到指定会员的卡片
+   * @param member 会员对象
+   */
+  scrollToMember(member: Member): void {
+    this.currentMemberId = member.memberId || '';
+    
+    // 查找对应的会员卡片
+    const targetCard = document.querySelector(`[data-letter="${this.getFirstLetter(member.name)}"]`);
+    if (targetCard) {
+      // 平滑滚动到目标卡片
+      targetCard.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start',
+        inline: 'nearest'
+      });
+      
+      // 添加高亮效果
+      targetCard.classList.add('highlight');
+      setTimeout(() => {
+        targetCard.classList.remove('highlight');
+        this.currentMemberId = '';
+      }, 2000);
+    }
+  }
+
+  /**
+   * 获取会员姓名的首字母（保留用于data-letter属性）
+   * @param name 会员姓名
+   * @returns 首字母（大写）
+   */
+  getFirstLetter(name: string): string {
+    if (!name || name.length === 0) return 'A';
+    const firstChar = name.charAt(0).toUpperCase();
+    // 如果是中文字符，返回拼音首字母
+    if (/[\u4e00-\u9fa5]/.test(firstChar)) {
+      return this.getChineseFirstLetter(firstChar);
+    }
+    return firstChar;
+  }
+
+  /**
+   * 获取中文字符的拼音首字母
+   * @param char 中文字符
+   * @returns 拼音首字母
+   */
+  private getChineseFirstLetter(char: string): string {
+    // 简化的中文拼音首字母映射
+    const pinyinMap: { [key: string]: string } = {
+      '阿': 'A', '安': 'A', '艾': 'A',
+      '白': 'B', '包': 'B', '毕': 'B', '边': 'B',
+      '陈': 'C', '程': 'C', '曹': 'C', '崔': 'C',
+      '邓': 'D', '丁': 'D', '董': 'D', '段': 'D',
+      '冯': 'F', '方': 'F', '范': 'F', '费': 'F',
+      '高': 'G', '郭': 'G', '顾': 'G', '关': 'G',
+      '何': 'H', '黄': 'H', '韩': 'H', '胡': 'H',
+      '李': 'L', '刘': 'L', '林': 'L', '梁': 'L',
+      '马': 'M', '毛': 'M', '孟': 'M', '穆': 'M',
+      '王': 'W', '吴': 'W', '魏': 'W', '温': 'W',
+      '张': 'Z', '赵': 'Z', '周': 'Z', '郑': 'Z'
+    };
+    
+    return pinyinMap[char] || 'A';
   }
 }

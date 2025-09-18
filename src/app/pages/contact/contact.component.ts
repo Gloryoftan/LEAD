@@ -46,6 +46,56 @@ import { FormsModule } from '@angular/forms';
         </div>
       </div>
     </section>
+
+    <!-- Author Section -->
+    <section class="author-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">开发者</h2>
+          <p class="section-subtitle">Crafted with passion by a full-stack engineer</p>
+        </div>
+        
+        <div class="author-card">
+          <div class="author-avatar">
+            <div class="avatar-circle">
+              <span class="avatar-text">ST</span>
+            </div>
+            <div class="avatar-glow"></div>
+          </div>
+          
+          <div class="author-info">
+            <h3 class="author-name">Samari Tan</h3>
+            <p class="author-title">全栈工程师</p>
+            <p class="author-organization">南京ET俱乐部</p>
+            
+            <div class="author-details">
+              <div class="detail-item">
+                <span class="detail-icon">📅</span>
+                <span class="detail-text">2019年4月1日加入</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">🏆</span>
+                <span class="detail-text">前District 0128 G2 Area Director</span>
+              </div>
+            </div>
+            
+            <div class="author-tags">
+              <span class="tag tag-developer">#页面开发者</span>
+              <span class="tag tag-mystic">#玄学玩家</span>
+              <span class="tag tag-creative">#脑洞制造机</span>
+              <span class="tag tag-philosopher">#夜谈哲学家</span>
+              <span class="tag tag-gamer">#游戏冒险家</span>
+            </div>
+          </div>
+          
+          <div class="author-decoration">
+            <div class="decoration-circle circle-1"></div>
+            <div class="decoration-circle circle-2"></div>
+            <div class="decoration-circle circle-3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
   `,
   styles: [`
     .team-content {
@@ -177,6 +227,357 @@ import { FormsModule } from '@angular/forms';
               top: 0.1em;
             }
           }
+        }
+      }
+    }
+
+    /* Author Section Styles */
+    .author-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        opacity: 0.3;
+      }
+      
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        
+        .section-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: white;
+          margin-bottom: 1rem;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-subtitle {
+          font-size: 1.2rem;
+          color: rgba(255, 255, 255, 0.9);
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+    
+    .author-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+    }
+    
+    .author-avatar {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      
+      .avatar-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        
+        .avatar-text {
+          font-size: 2rem;
+          font-weight: 700;
+          color: white;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+      }
+      
+      .avatar-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        opacity: 0.3;
+        filter: blur(20px);
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+    }
+    
+    .author-info {
+      text-align: center;
+      
+      .author-name {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .author-title {
+        font-size: 1.3rem;
+        color: #667eea;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      
+      .author-organization {
+        font-size: 1.1rem;
+        color: #6c757d;
+        margin-bottom: 2rem;
+      }
+    }
+    
+    .author-details {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      
+      .detail-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: rgba(102, 126, 234, 0.1);
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: rgba(102, 126, 234, 0.2);
+          transform: translateY(-2px);
+        }
+        
+        .detail-icon {
+          font-size: 1.2rem;
+        }
+        
+        .detail-text {
+          font-weight: 500;
+          color: #2c3e50;
+        }
+      }
+    }
+    
+    .author-tags {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      
+      .tag {
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: default;
+        
+        &:hover {
+          transform: translateY(-3px) scale(1.05);
+        }
+        
+        &.tag-mystic {
+          background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+          color: white;
+          box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        &.tag-creative {
+          background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+          color: white;
+          box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+        
+        &.tag-philosopher {
+          background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+          color: #2c3e50;
+          box-shadow: 0 4px 15px rgba(168, 237, 234, 0.3);
+        }
+        
+        &.tag-developer {
+          background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+          color: #2c3e50;
+          box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+          font-weight: 700;
+        }
+        
+        &.tag-gamer {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+      }
+    }
+    
+    .author-decoration {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      overflow: hidden;
+      
+      .decoration-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        animation: float 6s ease-in-out infinite;
+        
+        &.circle-1 {
+          width: 60px;
+          height: 60px;
+          top: 20%;
+          right: 10%;
+          animation-delay: 0s;
+        }
+        
+        &.circle-2 {
+          width: 40px;
+          height: 40px;
+          bottom: 20%;
+          left: 15%;
+          animation-delay: 2s;
+        }
+        
+        &.circle-3 {
+          width: 80px;
+          height: 80px;
+          top: 60%;
+          right: 20%;
+          animation-delay: 4s;
+        }
+      }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.5;
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .author-section {
+        padding: 4rem 0;
+        
+        .section-header {
+          margin-bottom: 3rem;
+          
+          .section-title {
+            font-size: 2rem;
+          }
+          
+          .section-subtitle {
+            font-size: 1rem;
+          }
+        }
+      }
+      
+      .author-card {
+        padding: 2rem;
+        margin: 0 1rem;
+      }
+      
+      .author-info {
+        .author-name {
+          font-size: 2rem;
+        }
+        
+        .author-title {
+          font-size: 1.1rem;
+        }
+        
+        .author-organization {
+          font-size: 1rem;
+        }
+      }
+      
+      .author-details {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        
+        .detail-item {
+          padding: 0.5rem 1rem;
+        }
+      }
+      
+      .author-tags {
+        gap: 0.5rem;
+        
+        .tag {
+          font-size: 0.8rem;
+          padding: 0.4rem 0.8rem;
+        }
+      }
+      
+      .author-avatar {
+        .avatar-circle {
+          width: 100px;
+          height: 100px;
+          
+          .avatar-text {
+            font-size: 1.8rem;
+          }
+        }
+        
+        .avatar-glow {
+          width: 120px;
+          height: 120px;
         }
       }
     }
