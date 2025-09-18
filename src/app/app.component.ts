@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BaseHrefService } from './services/base-href.service';
@@ -34,9 +34,26 @@ import { BaseHrefService } from './services/base-href.service';
 export class AppComponent implements OnInit {
   title = 'LEAD';
 
-  constructor(private baseHrefService: BaseHrefService) {}
+  constructor(
+    private baseHrefService: BaseHrefService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     // BaseHrefService 在构造函数中已经初始化
+    
+    // 检查是否有重定向路径需要处理
+    const redirectPath = sessionStorage.getItem('redirectPath');
+    if (redirectPath) {
+      // 清除存储的重定向路径
+      sessionStorage.removeItem('redirectPath');
+      
+      // 移除base href前缀，获取相对路径
+      const baseHref = this.baseHrefService.getBaseHref();
+      const relativePath = redirectPath.replace(baseHref, '');
+      
+      // 导航到目标路径
+      this.router.navigateByUrl(relativePath);
+    }
   }
 }

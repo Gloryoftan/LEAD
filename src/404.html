@@ -6,7 +6,8 @@
   <base href="/LEAD/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-    // 重定向到主页
+    // 保存当前路径并重定向到主页，让Angular路由处理
+    sessionStorage.setItem('redirectPath', window.location.pathname);
     window.location.href = '/LEAD/';
   </script>
 </head>

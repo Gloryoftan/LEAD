@@ -28,4 +28,15 @@ export class BaseHrefService {
       }
     }
   }
+
+  getBaseHref(): string {
+    // 检查是否在GitHub Pages环境
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    
+    if (isGitHubPages) {
+      return '/LEAD/';
+    } else {
+      return environment.baseHref;
+    }
+  }
 }
