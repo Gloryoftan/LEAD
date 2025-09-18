@@ -544,7 +544,12 @@ export class MembersComponent implements OnInit, OnDestroy {
 
   getDefaultAvatar(name: string): string {
     // 使用默认头像或生成基于名字的初始头像
-    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=667eea&color=fff&size=80`;
+    // 对于三个字的名字，显示后两个字；两个字的名字保持不变
+    let displayName = name;
+    if (name.length === 3) {
+      displayName = name.substring(1); // 取后两个字
+    }
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=667eea&color=fff&size=80`;
   }
 
   getStatusClass(member: Member): string {
