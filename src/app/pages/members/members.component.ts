@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { MemberService } from '../../services/member.service';
 import { Member } from '../../models/member.model';
@@ -31,7 +31,9 @@ import { Member } from '../../models/member.model';
             <div 
               *ngFor="let member of members; let i = index; trackBy: trackByMemberId" 
               class="member-card"
-              [routerLink]="['/members', member.memberId]"
+              [class.loading]="loadingStates[member.memberId || '']"
+              [class.disabled]="loadingStates[member.memberId || '']"
+              (click)="navigateToMemberDetail(member)"
               data-aos="fade-up"
               [attr.data-aos-delay]="getAnimationDelay(i)"
             >
@@ -52,9 +54,15 @@ import { Member } from '../../models/member.model';
                 <p class="member-id" *ngIf="member.memberId">会员号: {{ member.memberId }}</p>
                 
                 <!-- 手机端点击提示 -->
-                <div class="mobile-tap-hint">
+                <div class="mobile-tap-hint" *ngIf="!loadingStates[member.memberId || '']">
                   <span class="tap-icon">👆</span>
                   <span class="tap-text">点击查看详情</span>
+                </div>
+                
+                <!-- 加载状态提示 -->
+                <div class="loading-hint" *ngIf="loadingStates[member.memberId || '']">
+                  <div class="loading-spinner"></div>
+                  <span class="loading-text">正在加载...</span>
                 </div>
                 
                 <div class="member-stats">
@@ -182,6 +190,16 @@ import { Member } from '../../models/member.model';
     .member-card:active {
       transform: translateY(-4px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .member-card.loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .member-card.disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
     }
 
     .member-avatar {
@@ -366,6 +384,55 @@ import { Member } from '../../models/member.model';
       font-size: 0.85rem;
     }
 
+    .loading-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+      animation: loadingPulse 1.5s infinite;
+    }
+
+    .loading-spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top: 2px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .loading-text {
+      font-size: 0.85rem;
+    }
+
+    @keyframes loadingPulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.02);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     @keyframes pulse {
       0% {
         transform: scale(1);
@@ -446,9 +513,13 @@ import { Member } from '../../models/member.model';
 })
 export class MembersComponent implements OnInit, OnDestroy {
   members: Member[] = [];
+  loadingStates: { [key: string]: boolean } = {};
   private destroy$ = new Subject<void>();
 
-  constructor(private memberService: MemberService) {}
+  constructor(
+    private memberService: MemberService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.memberService.getMembers()
@@ -510,5 +581,53 @@ export class MembersComponent implements OnInit, OnDestroy {
     if (this.members.length === 0) return 0;
     const totalRate = this.members.reduce((total, member) => total + member.bottleneckResolutionRate, 0);
     return Math.round(totalRate / this.members.length);
+  }
+
+  /**
+   * 导航到成员详情页面
+   * 添加加载状态管理和智能预加载，提升用户体验
+   */
+  navigateToMemberDetail(member: Member): void {
+    const memberId = member.memberId || '';
+    
+    // 如果已经在加载中，直接返回
+    if (this.loadingStates[memberId]) {
+      return;
+    }
+
+    // 设置加载状态
+    this.loadingStates[memberId] = true;
+
+    // 预加载目标组件（如果还没有加载）
+    this.preloadMemberDetailComponent();
+
+    // 使用setTimeout来确保UI更新，然后进行路由跳转
+    setTimeout(() => {
+      this.router.navigate(['/members', memberId])
+        .then(() => {
+          // 导航成功后清除加载状态
+          this.loadingStates[memberId] = false;
+        })
+        .catch((error) => {
+          // 导航失败时也清除加载状态
+          console.error('导航失败:', error);
+          this.loadingStates[memberId] = false;
+        });
+    }, 100);
+  }
+
+  /**
+   * 预加载成员详情组件
+   * 在用户点击时提前加载组件，减少跳转延迟
+   */
+  private preloadMemberDetailComponent(): void {
+    // 动态导入成员详情组件进行预加载
+    import('../member-detail/member-detail.component')
+      .then(() => {
+        console.log('成员详情组件预加载完成');
+      })
+      .catch((error) => {
+        console.warn('成员详情组件预加载失败:', error);
+      });
   }
 }
